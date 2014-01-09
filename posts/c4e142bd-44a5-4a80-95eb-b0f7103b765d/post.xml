@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>Test</title>
+  <slug>test</slug>
+  <author>anvslv</author>
+  <pubDate>2013-12-27 15:17:21</pubDate>
+  <lastModified>2013-12-28 09:35:13</lastModified>
+  <content>    &lt;!DOCTYPE html&gt;
+    &lt;title&gt;Title 1&lt;/title&gt;
+    
+    &lt;style&gt;body {width: 500px;}&lt;/style&gt;
+    
+    &lt;script type="application/javascript"&gt;
+      function $init() {return true;}
+    &lt;/script&gt;
+    
+    &lt;body&gt;
+      &lt;p checked class="title" id='title'&gt;Title&lt;/p&gt;
+      &lt;!-- here goes the rest of the page --&gt;
+    &lt;/body&gt;
+    
+ Please</content>
+  <ispublished>false</ispublished>
+  <iscomments>true</iscomments>
+  <categories>
+    <category>something</category>
+  </categories>
+  <comments>
+    <comment isAdmin="true" id="069624d9-22de-49d1-abe6-231714be3d79">
+      <author>Andrei Vasilev</author>
+      <email>anvslv@gmail.com</email>
+      <website></website>
+      <ip>::1</ip>
+      <userAgent>Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.41 Safari/537.36</userAgent>
+      <date>2013-12-27 16:25:44</date>
+      <content>Yes</content>
+    </comment>
+    <comment isAdmin="false" id="854de339-0192-4eca-b4cd-27aa54c57f89">
+      <author>Andrei Vasilev</author>
+      <email>anvslv@gmail.com</email>
+      <website></website>
+      <ip>::1</ip>
+      <userAgent>Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.41 Safari/537.36</userAgent>
+      <date>2013-12-27 16:26:01</date>
+      <content>No</content>
+    </comment>
+  </comments>
+</post>

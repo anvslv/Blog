@@ -1,0 +1,49 @@
+﻿@using Blog.App.Code
+@using Blog.Resources
+
+@{
+    var isPublished = Blog.CurrentPost != null && Blog.CurrentPost.IsPublished;
+    var isComments = Blog.CurrentPost != null && Blog.CurrentPost.IsComments;
+}
+
+<div id="admin"
+     class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal nodecoration"
+     data-ispublished="@isPublished">
+    <ul>
+        <li id="btnNew"><a class="pure-button" onclick="location.href = '/log/new/#/edit';">@Index_Admin.NewPost</a></li>
+        @Drafts()
+        <li id="btnEdit" class="hidden"><a onclick="location.href = '#/edit'" class="pure-button">@Index_Admin.Edit</a></li>
+        <li id="btnDelete" class="hidden"><a href="#" class="pure-button">@Index_Admin.Delete</a></li>
+        <li id="btnSave" class="hidden"><a href="#" class="pure-button">@Index_Admin.Save</a></li>
+        <li id="btnCancel" class="hidden"><a href="#" class="pure-button">@Index.Cancel</a></li>
+        <li id="ispublished" class="hidden">
+            <label for="chkispublished" class="pure-checkbox">
+                <input type="checkbox" id="chkispublished" checked="@(isPublished ? "checked" : null)" disabled />
+                @Index_Admin.Publish
+            </label>
+        </li>
+        <li id="iscomments" class="hidden">
+            <label for="chkiscomments" class="pure-checkbox">
+                <input type="checkbox" id="chkiscomments" checked="@(isComments ? "checked" : null)" disabled />
+                @Index.Comments
+            </label>
+        </li>
+    </ul>
+
+    <form action="@FormsAuthentication.LoginUrl?signout=true&amp;ReturnUrl=@Request.RawUrl" method="post">
+        <button type="submit" title="Signed in as @User.Identity.Name" class="pure-button">
+            @Index_Admin.SignOut
+        </button>
+    </form>
+     
+</div>
+ 
+@helper Drafts() {
+    
+    var draftsCount = Blog.GetDrafts().Count();
+    if (draftsCount > 0)
+    {
+        <li><a href="/drafts" id="btnDrafts" class="pure-button">@Index_Admin.Drafts<sup>@draftsCount</sup></a></li>
+    }
+ 
+}

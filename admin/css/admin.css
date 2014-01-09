@@ -1,0 +1,334 @@
+﻿/* #region common */
+.admin {
+    padding-top: 50px;
+}
+
+#admin {
+    font: 12pt arial;
+    padding: 0.5em 0 0.5em 2em;
+}
+
+    #admin form {
+        position: absolute;
+        top: 9px;
+        right: 4em;
+        margin: 0;
+    }
+
+    #banner #alert { 
+        display: none;  
+        position: absolute; 
+        right: 0em; 
+        margin: 1em 2em 0 1em;
+    }
+
+        #banner aside .alert {
+            display: inline-block;
+            padding: 6px 2em;
+        }
+
+    #admin ul {
+        margin-right: 140px;
+        height: auto;
+    }
+
+#ispublished, #iscomments {
+    display: none;
+    white-space: nowrap;
+    padding: 0.35em 1.4em;
+}
+
+    #ispublished label, #iscomments label {
+        display: inline;
+        position: relative;
+        font-weight: normal;
+        line-height: 1.5em;
+    }
+/* #endregion */
+
+/*
+    #region modal for markdown help
+*/
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width: auto;
+    max-width: 430px;
+    margin: 20px auto;
+    font-family: open-sans;
+}
+
+/* #endregion */
+
+/*
+    #region admin menu higher than the editor
+*/
+.pure-menu.pure-menu-open {
+    z-index: 1000;
+}
+
+.nodecoration .pure-button { 
+    background-color: #fff; 
+}
+
+.nodecoration .pure-button-hover,
+.nodecoration .pure-button:hover,
+.nodecoration .pure-button:focus {
+    filter: none; 
+    background-image: none;
+}
+
+/* #endregion */
+
+/* #region selectize z-index and fonts */
+.selectize-dropdown {
+    z-index: 201;
+}
+
+.selectize-dropdown-header,
+.selectize-input,
+.selectize-dropdown,
+.selectize-input.dropdown-active {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+
+.selectize-input { 
+    padding: 11px 8px 10px;
+}
+
+.selectize-control.multi 
+.selectize-input.has-items {
+    padding: 7px 8px 5px;
+}
+
+    .selectize-dropdown, 
+    .selectize-input, 
+    .selectize-input input[type=text] {
+        font-size: 13px;
+        line-height: 18px;
+
+        font-size: xx-large;
+        line-height: 1.5em !important;
+    }
+
+
+
+.selectize-dropdown .optgroup-header {
+    padding-top: 7px;
+    font-size: 0.85em;
+    font-size: inherit;
+}
+
+
+.selectize-dropdown-header-close {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    margin-top: -12px;
+    font-size: 20px !important;
+    line-height: 20px;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+.selectize-control.plugin-remove_button [data-value] .remove {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 17px;
+    padding: 2px 0 0 0;
+    font-size: 12px;
+    font-size: inherit;
+}
+
+/* #endregion */
+ 
+/* #region admin bar responsiveness */
+
+@media (max-width: 767px){ 
+     
+    .pure-menu li a {
+        padding: 5px 10px;
+    }
+
+    #ispublished, #iscomments {
+        padding: 5px 10px !important;
+        font-size: 66.5%;
+    }
+
+    .admin {
+        padding-top: 47px;
+    }
+}
+
+@media (max-width: 480px) {
+    #admin {
+        padding: 0;
+    }
+    
+    .wrapper,
+    #admin {
+        min-width: 430px;
+    }
+    
+    #admin ul {
+        margin-right: 80px; 
+    }
+
+    #admin form { 
+        top: 0;
+        right: 0;
+        margin: 0;
+    }
+
+    #ispublished, #iscomments {
+        padding: 5px 5px !important; 
+    }
+
+    .admin {
+        padding-top: 31px;
+    }
+}
+
+/* #endregion */
+  
+/* #region markdown editor customization */
+ 
+html { 
+    font: inherit;
+}
+body { 
+    font-size:inherit;
+}
+
+.CodeMirror pre {
+    font-size: 0.9rem;
+    line-height: 1.3em;
+}
+
+ .features .editor {
+    margin-top: 20px;
+     font-size: 0.9rem;
+}
+
+.features .editor .editorwrap {
+    height: 600px;
+    max-width: inherit;
+}
+     
+.features .editor .help-button {
+	float: right;
+	padding-right: 22px
+}
+
+.features .editor .help-button a{
+    text-decoration: none;
+    border: none !important;
+}
+
+.features .editor .CodeMirror-lines {
+    padding-top: 50px;
+}
+    
+.features .editor .CodeMirror , .features .editor .entry-preview-content { 
+        margin-top: 20px;
+}
+     
+.features .editor .scrolling .floatingheader {
+    height: 21px; 
+} 
+ 
+.features .editor img {
+    max-width: 100%;
+} 
+
+.features .editor .entry-preview {
+    box-shadow: none;
+}
+
+.features .editor .entry-preview-content {
+    padding: 25px 40px 40px 30px;
+}
+
+.features .editor .entry-word-count {
+    padding-right: 0;
+    margin-right: 20px;
+}
+
+@media (max-width: 860px), (max-width: 860px) {
+    .features .editor .CodeMirror-lines {
+        padding-top: 25px;
+    }
+
+    .features .editor .CodeMirror, 
+    .features .editor .entry-preview-content { 
+        margin-top: 0px;
+    }
+
+    .features .editor {
+        margin-top: 50px;
+    }
+         
+    .features .editor .editorwrap {
+        height: 700px;
+    }
+
+    .features .editor .entry-preview {
+        box-shadow: #edece4 1px 0 0 inset, #edece4 -1px 0 0 inset, #edece4 0 -1px 0 inset;
+    }
+      
+    .features .editor .entry-markdown .floatingheader a {
+        color: #fff;
+    }
+
+    .features .editor .entry-markdown.active .floatingheader a {
+        color: #aaa9a2;
+    }
+     
+    .features .editor .outer {
+        /*padding: 0 1em;*/
+        padding: 0;
+    }
+     
+    .features .editor .entry-markdown, .features .editor .entry-preview {
+        bottom: 0;
+    }
+     
+    .features .editor .entry-markdown .floatingheader, .features .editor .entry-preview .floatingheader {
+        top: -2.5em; 
+    }
+} 
+
+/* #endregion */
+ 
+@media (max-width: 767px){ 
+    
+    .selectize-dropdown, 
+    .selectize-input,
+    .selectize-input input[type=text], 
+    #postTitle  {
+        font-size: 13px !important;
+    }
+
+    .selectize-control.multi 
+    .selectize-input.has-items {
+        padding: 4px 4px 0 !important;
+    }
+
+    .selectize-input {
+        padding: 7px 7px 6px !important;
+    } 
+}
+ 
+#postTitle, #postSlug, #txtCategories {
+    font-size: xx-large;
+}
+
+.editlink {
+    margin-left: 5px;
+}

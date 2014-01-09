@@ -1,0 +1,97 @@
+﻿@using Blog.App.Code
+@using Blog.Resources
+ 
+<article class="post" data-id="@Model.ID" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <header class="postHeader">
+        @DatePublished()
+
+        <h1 itemprop="headline name">
+        @if (Blog.CurrentPost == null && !Blog.IsNewPost)
+        {
+            <a href="@Model.Url" itemprop="url">@Model.Title</a>
+            @EditUrl()
+        }
+        else
+        {
+            @Model.Title
+        }
+    </h1>
+    </header>
+
+    <div itemprop="articleBody" class="articleBody">
+        @Html.Raw(Model.RenderedContent)
+    </div>
+    <div id="contentWrapper">
+    </div>
+
+    <div class="categoriesSection">
+        @Categories()
+    </div>
+
+    @if (Blog.CurrentPost != null)
+    {
+        <section id="comments" aria-label="Comments">
+            @if (Model.Comments.Count > 0)
+            {
+                <h2>@Index.Comments</h2>
+            }
+
+            @foreach (Comment comment in Model.Comments)
+            {
+                @RenderPage("Comment.cshtml", comment)
+            }
+        </section>
+
+        if (Model.AreCommentsOpen(Context))
+        {
+            @RenderPage("~/views/CommentForm.cshtml")
+        }
+
+    }
+    else
+    {
+        <div class="postFooter"></div>
+    }
+
+</article>
+
+@helper EditUrl() {
+    if (User.Identity.IsAuthenticated)
+    {
+        <span class="nodecoration editlink">
+            <a href="@(Model.Url + "#/edit")" class="nodecoration">
+                <img alt="Edit" width="16px" height="16px" src="@(Blog.FingerPrint("/themes/" + Blog.Theme + "/images/edit.png"))" />
+            </a>
+        </span>
+    }
+}
+
+@helper Categories()
+{
+    if (Model.Categories.Length > 0 || User.Identity.IsAuthenticated)
+    {
+        <ul class="categories">
+
+            @foreach (string cat in Model.Categories)
+            {
+                <li itemprop="articleSection">
+                    <a href="~/log/category/@HttpUtility.UrlEncode(cat.ToLowerInvariant())">@cat</a>
+                </li>
+            }
+        </ul>
+    }
+}
+
+@helper DatePublished()
+{
+    <p class="date" id="date" title="@Model.PubDate.ToLocalTime()" itemprop="datePublished">
+        @if (@Model.PubDate.Year != DateTime.Now.Year)
+        {
+            @Model.PubDate.ToLocalTime().ToString("d MMMM yyyy, hh:mm")
+        }
+        else
+        {
+            @Model.PubDate.ToLocalTime().ToString("d MMMM, hh:mm")
+        }
+    </p>
+}

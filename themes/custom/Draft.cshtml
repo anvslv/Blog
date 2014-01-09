@@ -1,0 +1,42 @@
+﻿@using System.Text.RegularExpressions
+@using BlogExtensions.Extensions
+
+<div class="pure-u-1-3">
+    <div class="draft-preview">
+        <a href="@EditUrl()">
+            <div class="draft-preview-inner">
+                <h2>
+                    @Model.Title
+                </h2>
+                <p>@Html.Raw(MarkupHelper.GetDescription(Model.RenderedContent, 300))</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+@helper EditUrl()
+{
+    @(Model.Url + "#/edit");
+}
+
+@functions{
+    public class MarkupHelper
+    {
+        #region excerpt generation
+
+        public static string GetDescription(string content, int length = 300)
+        {
+            if (content != null)
+            {
+                // http://stackoverflow.com/questions/5792522/need-regular-expression-to-remove-a-href-xxname-a-tags-from-a-string
+                content = Regex.Replace(content, @"<a\b[^>]+>([^<]*(?:(?!</a)<[^<]*)*)</a>", "$1");
+            }
+
+            content = content.TruncateHtml(length);
+
+            return content;
+        }
+
+        #endregion
+    }
+}

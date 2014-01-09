@@ -1,0 +1,14 @@
+﻿@{
+    Response.ContentType = "text/xml";
+}
+
+<rsd version="1.0">
+    <service>
+        <enginename>Blog</enginename>
+        <enginelink>http://github.com/madskristensen/Blog/</enginelink>
+        <homepagelink>@Request.Url.Scheme://@Request.Url.Authority</homepagelink>
+        <apis>
+            <api name="MetaWeblog" preferred="true" apilink="@Request.Url.Scheme://@Request.Url.Authority/metaweblog" blogid="1" />
+        </apis>
+    </service>
+</rsd>

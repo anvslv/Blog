@@ -1,0 +1,177 @@
+﻿
+@using Blog.Resources
+@using Blog.App.Code
+ 
+<!doctype html>
+<html lang="@Localization.CurrentLanguage">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <title>@Page.Title</title>
+    <meta name="description" content="@Blog.Desc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <link type="application/rsd+xml" rel="edituri" title="RSD" href="~/views/robots/rsd" />
+    <link type="application/rss+xml" rel="alternate" title="@Blog.Title" href="~/feed/rss/" />
+    <link type="application/atom+xml" rel="alternate" title="@Blog.Title" href="~/feed/atom/" />
+
+    <meta name="application-name" content="@Blog.Title" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="@Page.Title" />
+    <meta name="twitter:description" content="@Blog.Desc" />
+    <meta name="twitter:image" content="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/image.png")" />
+    <meta name="twitter:creator" content="@("@anvslv")" />
+    <meta name="twitter:site" content="@("@anvslv")" />
+
+    <meta property="og:title" content="@Page.Title" />
+    <meta property="og:description" content="@Blog.Desc" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="@(Request.Url.Scheme + "://" + Request.Url.Authority + Request.RawUrl)" />
+    <meta property="og:image" content="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/image.png")" />
+
+    <link rel="shortcut icon" href="@Blog.FingerPrint("/icon.png")" type="image/x-icon" />
+    <link rel="dns-prefetch" href="http://gravatar.com/" />
+    <link rel="apple-touch-icon" href="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/image.png")" />
+
+    @Css()
+    @Js()
+</head>
+<body>
+    @AdminMenu()
+
+    <div class="wrapper">
+        <div class="@(User.Identity.IsAuthenticated ? "admin pullbottom" : "pullbottom")">
+            <div class="banner" id="banner">
+                <h1 class="banner-head">
+                    @if (Request.RawUrl.TrimEnd('/') != "/log" && Request.RawUrl.TrimEnd('/') != "")
+                    {
+                        <a href="~/log" itemprop="url">@Index.AllPosts</a>
+                    }
+                </h1>
+
+                @ChangeLanguage()
+                @Alert()
+            </div>
+
+            @RenderBody()
+
+            @Paging()
+        </div>
+    </div>
+
+    <footer>
+        @if (!User.Identity.IsAuthenticated && !Request.RawUrl.StartsWith("/views/login.cshtml"))
+        {
+            <div>
+                <span class="nodecoration">
+                    <a href="@FormsAuthentication.LoginUrl?ReturnUrl=@Request.RawUrl">
+                        <img alt="Sign in" width="16" height="16" src="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/lock.png")" />
+                    </a>
+                </span>
+            </div>
+        }
+    </footer> 
+</body>
+</html>
+
+@helper Js()
+{
+    <script src="@Blog.FingerPrint("/scripts/lib/jquery-2.0.2.js")"></script>
+    <script src="@Blog.FingerPrint("/scripts/lib/jquery.magnific-popup.js")"></script>
+    <script src="@Blog.FingerPrint("/scripts/lib/highlight.pack.js")"></script>
+    <script src="@Blog.FingerPrint("/scripts/application.js")"></script>
+    <script src="@Blog.LocalizationFingerPrint("/scripts/resources.js", Localization.Resources)"></script>
+
+    if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)))
+    {
+        <script src="@Blog.FingerPrint("/scripts/comments.js")" async defer></script>
+    }
+
+    if (User.Identity.IsAuthenticated)
+    {
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/underscore.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/shortcuts.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Converter.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Extra.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/markdown-actions.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/inline-attach.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.inline-attach.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/selectize.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/path.js")"></script>
+    }
+
+    if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
+    {
+        <script src="@Blog.FingerPrint("/admin/scripts/admin.js")" async defer></script>
+    }
+}
+ 
+@helper AdminMenu()
+{
+    if (User.Identity.IsAuthenticated)
+    {
+        @RenderPage("~/views/AdminMenu.cshtml")
+    }
+}
+
+@helper Paging()
+{
+    if (Page.ShowPaging != null)
+    {
+        <ul class="pure-paginator pager">
+            @if (Blog.GetPosts(Blog.PostsPerPage * 2).Count() > Blog.PostsPerPage)
+            {
+                <li><a href="@Blog.GetPagingUrl(1)" rel="prev">&larr; @Index.Older</a>&nbsp;</li>
+            }
+            @if (Blog.CurrentPage > 1)
+            {
+                <li><a href="@Blog.GetPagingUrl(-1)" rel="next">@Index.Newer &rarr;</a></li>
+            }
+        </ul>
+    }
+}
+
+@helper Alert()
+{
+    if (User.Identity.IsAuthenticated)
+    {
+        <div id="alert">
+            <span class="alert"></span>
+        </div>
+    }
+}
+
+@helper ChangeLanguage()
+{
+    <div class="changeLanguage">
+        @if (Localization.CurrentLanguage == "en")
+        {
+            <span>EN</span>
+            <span><a href="@Request.RawUrl" class="language" data-lang="ru">RU</a></span>
+        }
+        else
+        {
+            <span><a href="@Request.RawUrl" class="language" data-lang="en">EN</a></span>
+            <span>RU</span>
+        }
+    </div>
+}
+
+
+@helper Css ()
+{
+    <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/pure.css")" />
+    <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/magnific-popup.css")" />
+    <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/highlight/vs.css")">
+    <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/alert.css")">
+    <link rel="stylesheet" href="@Blog.FingerPrint("/themes/" + Blog.Theme + "/site.css")" />
+
+    if (User.Identity.IsAuthenticated)
+    {
+        <link rel="stylesheet" href="@Blog.FingerPrint("/admin/css/lib/selectize.default.css")" />
+        <link rel="stylesheet" href="@Blog.FingerPrint("/admin/css/lib/editor.css")" />
+        <link rel="stylesheet" href="@Blog.FingerPrint("/admin/css/admin.css")" />
+    }
+}

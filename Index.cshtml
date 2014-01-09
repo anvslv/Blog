@@ -1,0 +1,101 @@
+@using System.Web.Caching;
+@using Blog.Resources
+@using Blog.App.Code 
+@{
+    Page.Title = Blog.Title;
+    Layout = "~/themes/" + Blog.Theme + "/_Layout.cshtml";
+    DateTime lastModified = DateTime.MinValue;
+    
+    if (Blog.IsDrafts)
+    {
+        Page.Title = "Drafts";
+        if (!User.Identity.IsAuthenticated)
+        {
+            throw new HttpException(404, "Post not found");
+        }
+        
+        var posts = Blog.GetDrafts();
+        
+            
+        @Html.Raw("<div class='drafts'><div class='pure-g-r'>")
+        foreach (var post in posts)
+        {
+            @RenderPage("~/themes/" + Blog.Theme + "/Draft.cshtml", post);
+        }
+        @Html.Raw("</div></div>")
+        
+    } 
+    else if (string.IsNullOrEmpty(Blog.CurrentSlug))
+    {
+        Page.ShowPaging = true;
+        var posts = Blog.GetPosts(Blog.PostsPerPage);
+         
+        @Html.Raw("<div class='pure-g-r'><div class='pure-u-1 content'>")
+        foreach (var post in posts)
+        {
+            @RenderPage("~/themes/" + Blog.Theme + "/Post.cshtml", post);
+        } 
+        if (posts.Any())
+        {
+            lastModified = posts.Max(p => p.LastModified);
+        }
+        else
+        {
+            <p class="noposts">@Index.NoPostsPublished</p>
+        }
+
+        @Html.Raw("</div></div>")
+        
+        Response.AddCacheItemDependency("posts");
+        Response.Cache.VaryByParams["page"] = true;
+        Response.Cache.VaryByParams["category"] = true;
+    }
+ 
+    else
+    {
+        Post post = Blog.IsNewPost ? new Post() : Blog.CurrentPost;
+
+        if (Blog.IsNewPost && !User.Identity.IsAuthenticated)
+        {
+            FormsAuthentication.RedirectToLoginPage();
+        }
+
+        if (post == null)
+        {
+            throw new HttpException(404, "Post not found");
+        }
+        Page.Title = Index_Admin.NewPostTitle;
+        lastModified = post.LastModified;
+        if (!Blog.IsNewPost)
+        {
+            Page.Title = post.Title;
+            string folder = Server.MapPath("~/posts/" + post.ID);
+            string fileName = Path.Combine(folder, "post.xml");
+            Response.AddCacheDependency(new CacheDependency(fileName));
+        }
+        
+        @Html.Raw("<div class='pure-g-r'><div class='pure-u-1 content'>")
+        @RenderPage("~/themes/" + Blog.Theme + "/Post.cshtml", post)
+        @Html.Raw("</div></div>")
+    
+    }
+
+    if (!Request.IsLocal)
+    {
+        Response.Cache.AppendCacheExtension("max-age=0");
+        Response.Cache.SetValidUntilExpires(true);
+        Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+        Response.Cache.SetVaryByCustom("authenticated");
+        Response.Cache.VaryByParams["slug"] = true;
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/")));
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/scripts")));
+        if (User.Identity.IsAuthenticated)
+        {
+            Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/admin")));
+        }
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/css")));
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Blog.Theme)));
+
+        Blog.SetConditionalGetHeaders(lastModified, Context);
+    }
+}

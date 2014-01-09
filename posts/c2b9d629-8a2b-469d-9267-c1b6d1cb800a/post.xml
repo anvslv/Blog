@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>aaa</title>
+  <slug>aaa</slug>
+  <author>anvslv</author>
+  <pubDate>2013-12-27 15:15:58</pubDate>
+  <lastModified>2014-01-04 20:40:40</lastModified>
+  <content>![file](/posts/c2b9d629-8a2b-469d-9267-c1b6d1cb800a/image-1388165073793.jpg)
+
+    .articleBody, .categoriesSection,
+     #comments,
+     #commentform { 
+        margin: 0 1em;
+        max-width: 700px; 
+    }
+    
+    .post .postHeader  { 
+        margin: 1em 1em 0;
+    }
+     
+    .post .categories li {
+        display: inline-block;
+    }
+    
+    .post .categories {
+        padding-left: 0;
+    }
+    
+    
+</content>
+  <ispublished>false</ispublished>
+  <iscomments>true</iscomments>
+  <categories></categories>
+  <comments></comments>
+</post>

@@ -1,0 +1,42 @@
+﻿@using Blog.App.Code
+@using Blog.Resources
+  
+<form id="commentform" role="form" class="pure-form pure-form-stacked">
+    <fieldset>
+        <h2>@Index.PostComment</h2>
+        
+        <div class="pure-g-r">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="pure-u-1-3">
+                    @*<label for="commentname">Name</label>*@
+                    <input id="commentname" type="text" class="pure-input-1" placeholder="@Index.Name *" required />
+                </div>
+
+                <div class="pure-u-1-3">
+                    @*<label for="commentemail">Email</label>*@
+                    <input id="commentemail" type="email" class="pure-input-1" placeholder="@Index.Email *" required />
+                </div>
+
+                <div class="pure-u-1-3">
+                    @*<label for="commenturl">Website</label>*@
+                    <input id="commenturl" type="url" class="pure-input-1"  placeholder="@Index.WebsiteUrl" />
+                </div>
+            }
+            else
+            {
+                <input id="commentname" type="hidden" class="pure-input-1" placeholder="@Index.Name *" required value="@Blog.Author" />
+                <input id="commentemail" type="hidden" class="pure-input-1" placeholder="@Index.Email *" required value="@Blog.Email" />
+                <input id="commenturl" type="hidden" class="pure-input-1" placeholder="@Index.WebsiteUrl" hidden />
+            }
+            <div class="pure-u-1">
+                @*<label for="commentcontent">Comment <small>(no HTML allowed)</small></label>*@
+                <textarea id="commentcontent" rows="6" class="pure-input-1" placeholder="@Index.Comment *" required></textarea>
+            </div>
+        </div>
+         
+        <button class="pure-button pure-button-primary">@Index.Submit</button>
+        <span id="status" class="alert" role="status" aria-live="polite"></span>
+            
+</fieldset>
+</form>

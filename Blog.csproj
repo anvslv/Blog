@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{425A8AE7-5243-46B1-9622-A01AD010CA3F}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blog</RootNamespace>
+    <AssemblyName>Blog</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\..\packages\AjaxMin.5.6.5100.19204\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcServerV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\xmlrpcnet-server.3.0.0.266\lib\net20\CookComputing.XmlRpcServerV2.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\xmlrpcnet.3.0.0.266\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\css\lib\selectize.default.css" />
+    <Content Include="css\lib\alert.css" />
+    <Content Include="admin\css\lib\editor.css" />
+    <Content Include="admin\scripts\lib\codemirror.inline-attach.js" />
+    <Content Include="admin\scripts\lib\codemirror.js" />
+    <Content Include="scripts\lib\highlight.pack.js" />
+    <Content Include="admin\scripts\lib\inline-attach.js" />
+    <None Include="admin\scripts\lib\jquery-2.0.2.intellisense.js" />
+    <Content Include="admin\scripts\lib\jquery-2.0.2.js" />
+    <Content Include="admin\scripts\lib\jquery.magnific-popup.js" />
+    <Content Include="admin\scripts\lib\markdown-actions.js" />
+    <Content Include="admin\scripts\lib\Markdown.Converter.js" />
+    <Content Include="admin\scripts\lib\Markdown.Extra.js" />
+    <Content Include="admin\scripts\lib\path.js" />
+    <Content Include="admin\scripts\lib\selectize.js" />
+    <Content Include="admin\scripts\lib\shortcuts.js" />
+    <Content Include="admin\scripts\lib\showdown.js" />
+    <Content Include="admin\scripts\lib\underscore.js" />
+    <Content Include="scripts\application.js" />
+    <Content Include="admin\css\admin.css" />
+    <Content Include="css\lib\pure.css" />
+    <Content Include="scripts\lib\jquery.magnific-popup.js" />
+    <Content Include="css\lib\magnific-popup.css" />
+    <Content Include="css\lib\selectize.default.css" />
+    <Content Include="css\lib\highlight\arta.css" />
+    <Content Include="css\lib\highlight\ascetic.css" />
+    <Content Include="css\lib\highlight\brown_paper.css" />
+    <Content Include="css\lib\highlight\brown_papersq.png" />
+    <Content Include="css\lib\highlight\dark.css" />
+    <Content Include="css\lib\highlight\default.css" />
+    <Content Include="css\lib\highlight\docco.css" />
+    <Content Include="css\lib\highlight\far.css" />
+    <Content Include="css\lib\highlight\foundation.css" />
+    <Content Include="css\lib\highlight\github.css" />
+    <Content Include="css\lib\highlight\googlecode.css" />
+    <Content Include="css\lib\highlight\idea.css" />
+    <Content Include="css\lib\highlight\ir_black.css" />
+    <Content Include="css\lib\highlight\magula.css" />
+    <Content Include="css\lib\highlight\mono-blue.css" />
+    <Content Include="css\lib\highlight\monokai.css" />
+    <Content Include="css\lib\highlight\monokai_sublime.css" />
+    <Content Include="css\lib\highlight\obsidian.css" />
+    <Content Include="css\lib\highlight\pojoaque.css" />
+    <Content Include="css\lib\highlight\pojoaque.jpg" />
+    <Content Include="css\lib\highlight\railscasts.css" />
+    <Content Include="css\lib\highlight\rainbow.css" />
+    <Content Include="css\lib\highlight\school_book.css" />
+    <Content Include="css\lib\highlight\school_book.png" />
+    <Content Include="css\lib\highlight\solarized_dark.css" />
+    <Content Include="css\lib\highlight\solarized_light.css" />
+    <Content Include="css\lib\highlight\sunburst.css" />
+    <Content Include="css\lib\highlight\tomorrow-night-blue.css" />
+    <Content Include="css\lib\highlight\tomorrow-night-bright.css" />
+    <Content Include="css\lib\highlight\tomorrow-night-eighties.css" />
+    <Content Include="css\lib\highlight\tomorrow-night.css" />
+    <Content Include="css\lib\highlight\tomorrow.css" />
+    <Content Include="css\lib\highlight\vs.css" />
+    <Content Include="css\lib\highlight\xcode.css" />
+    <Content Include="css\lib\highlight\zenburn.css" />
+    <None Include="views\Editor.cshtml" />
+    <Content Include="themes\custom\images\edit.png" />
+    <Content Include="themes\custom\images\image.png" />
+    <Content Include="themes\custom\images\landscape-50.jpg" />
+    <Content Include="themes\custom\images\lock.png" />
+    <Content Include="themes\custom\images\landscape.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="icon.png" />
+    <Content Include="admin\scripts\admin.js" />
+    <Content Include="scripts\comments.js" />
+    <Content Include="themes\custom\site.css" />
+    <Content Include="404.cshtml" />
+    <Content Include="Index.cshtml" />
+    <Content Include="packages.config" />
+    <Content Include="admin\Web.config" />
+    <None Include="scripts\lib\jquery-2.0.2.intellisense.js" />
+    <Content Include="scripts\lib\jquery-2.0.2.js" />
+    <None Include="scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="views\AdminMenu.cshtml" />
+    <Content Include="views\CommentForm.cshtml" />
+    <Content Include="views\Login.cshtml" />
+    <Content Include="views\Robots\Robots.cshtml" />
+    <Content Include="views\Robots\RSD.cshtml" />
+    <Content Include="views\Robots\Sitemap.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Index.Admin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.Admin.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Index.Admin.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.Admin.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Index.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Localization.cs" />
+    <Compile Include="Resources\ResourcesHandler.cs" />
+    <Compile Include="App\Code\Blog.cs" />
+    <Compile Include="App\Code\Comment.cs" />
+    <Compile Include="App\Code\Post.cs" />
+    <Compile Include="App\Code\Storage.cs" />
+    <Compile Include="App\Handlers\CommentHandler.cs" />
+    <Compile Include="App\Handlers\FeedHandler.cs" />
+    <Compile Include="App\Handlers\MetaWeblogHandler.cs" />
+    <Compile Include="App\Handlers\MinifyHandler.cs" />
+    <Compile Include="App\Handlers\PostHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="themes\custom\_Layout.cshtml" />
+    <Content Include="themes\custom\Comment.cshtml" />
+    <Content Include="themes\custom\Post.cshtml" />
+    <Content Include="themes\custom\Draft.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="posts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlogExtensions\BlogExtensions.csproj">
+      <Project>{f79ec48d-90db-4683-9f64-8cd372828745}</Project>
+      <Name>BlogExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Index.Admin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Admin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Index.Admin.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Admin.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Index.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6553</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6554/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+    <MonoDevelop>
+      <Properties VerifyCodeBehindFields="True" VerifyCodeBehindEvents="True">
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

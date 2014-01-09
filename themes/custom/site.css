@@ -1,0 +1,421 @@
+﻿
+/*#region Basic */
+html, body {
+    height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    @-ms-viewport {
+        width: 600px;
+    }
+}
+  
+.content {
+    padding: 0 1em 0;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.pullbottom {
+    padding-bottom: 50px;
+}
+
+a {
+    color: #3277b3;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+    a:visited, a:visited {
+        color: #6040a0;
+        border-color: #6040a0;
+    }
+
+
+.nodecoration a {
+    border-bottom: none !important;
+    color: #265778 !important;
+}
+
+.thisTitle {
+    padding: 0 .1em;
+    color: #ccc;
+    font-family: Courier New;
+    font-weight: bold;
+}
+
+.banner {
+    background: transparent url('images/landscape-50.jpg') 0 0 no-repeat fixed;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 0;
+    display: table;
+}
+    
+    .banner a, .banner a:visited {
+        text-decoration: none !important;
+        border-bottom: 1px solid !important;
+
+        /*border-bottom: none !important;
+        height: 100%;
+        display: block;*/
+    }
+
+.banner-head {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 1.2em;
+    font-size: 1.8em;
+}
+
+    .banner-head a, .banner-head a:visited, .banner-head span {
+        color: #ccc;
+        font-family: courier new;
+        font-weight: bold;
+        margin-right: 0.5em;
+    }
+
+.changeLanguage { 
+    padding: 0 2em 0 1em;
+    font-family: sans-serif;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.changeLanguage a,
+.changeLanguage span {
+    color: #eee;     
+    /*border-bottom: none !important;*/
+    padding: 0 1px;
+}
+
+.articleBody, .rendered-markdown {
+    font-family: Times New Roman, serif;
+    font-size: 1.1em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.enhansed {
+    font: 1.5em/1.5 sans-serif;
+}
+
+.pure-button-xsmall {
+    font-size: 70%;
+}
+
+.pager {
+    margin: 1em;
+}
+
+/*#endregion*/
+
+/*#region Post*/
+
+.date {
+    font-size: 0.7em;
+    color: #333;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.articleBody, .categoriesSection,
+ #comments,
+ #commentform { 
+    margin: 0 1em;
+    max-width: 700px; 
+}
+
+.post .postHeader  { 
+    margin: 1em 1em 0;
+}
+ 
+.post .categories li {
+    display: inline-block;
+}
+
+.post .categories {
+    padding-left: 0;
+}
+
+    .post .categories li:not(:last-child):after {
+        margin-right: 5px;
+        content: ", ";
+    }
+     
+.post h2 {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family: inherit;
+}
+
+.post h3 {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: inherit;
+}
+
+.post p {
+    padding: .4em 0;
+    line-height: 1.5;
+}
+
+.post pre {
+    font-size: 0.85em;
+}
+
+.post pre code{  
+    padding: 15px;
+    margin: 1em -16px;
+    border: 1px solid #E7E5DC;  
+    line-height: 1.3;
+}
+
+.post .postFooter {
+    margin: 5em 0;
+}
+  
+
+/*#endregion*/
+
+/*#region Comments */
+
+#comments article {
+    height: inherit !important;
+    position: relative;
+    overflow: hidden;
+    max-height: 9999px;
+    /*-webkit-transition: height .5s ease-in-out !important;
+    -moz-transition: height .5s ease-in-out !important;
+    -o-transition: height .5s ease-in-out !important;
+    transition: height .5s ease-in-out !important;*/
+}
+
+    #comments article div {
+        margin-left: 70px;
+        border-top: #eee 1px solid;
+        padding: 20px 0;
+    }
+
+    #comments article:first-of-type div {
+        border-top: none;
+    }
+
+    #comments article div p,
+    #comments article div span {
+        position: relative;
+        padding: 7px;
+    }
+
+    #comments article [itemprop='commentText'] {
+        margin: 0;
+        font-size: .9em;
+    }
+
+
+    #comments article img {
+        position: absolute;
+        top: 19px;
+    }
+
+    #comments article [itemprop='commentTime'] {
+        font-size: .8em;
+        color: #ccc;
+        white-space: nowrap;
+        margin-left: .6em;
+    }
+
+    #comments article [itemprop='creator'] {
+        margin-left: .4em;
+        margin-right: .8em;
+        font-size: 1em;
+        color: #aaa;
+    }
+
+    #comments article.self [itemprop='creator']:after {
+        content: "";
+        display: inline-block;
+        width: .7em;
+        height: .7em;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #b0bcdd;
+        margin: 0 0.5em;
+    }
+
+@media (max-width: 768px) {
+    #comments article div {
+        margin-left: 0;
+        padding: 35px 0 1em;
+    }
+
+        #comments article div p,
+        #comments article div span {
+            padding: 1em 0;
+        }
+
+    #comments article [itemprop='commentText'] {
+        margin: 1em 0 0;
+    }
+
+    #comments article [itemprop='creator'] {
+        margin-left: 60px;
+    }
+}
+
+/*#endregion */
+
+/*#region Comment form */
+
+#commentform {
+    margin-top: 2em;
+}
+
+    #commentform legend {
+        font-size: 1.4em;
+    }
+
+#status {
+    margin-left: 1em;
+}
+
+/*#endregion */
+
+/*#region Footer */
+
+footer {
+    position: relative;
+    clear: both;
+    margin: -50px 0 0 0;
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+}
+
+    footer div {
+        padding: .95em;
+        text-align: right;
+    }
+
+    footer a {
+        color: #add8e6;
+        text-decoration: none;
+    }
+
+/*#endregion */
+
+/*#region Draft */
+
+.draft-preview {  
+    font-size: 10px;
+    border: 1px solid #ddd;
+    margin: 1.5em; 
+    height: 200px;
+    overflow: hidden; 
+
+    box-shadow: 0 4px 8px #ddd;
+    -moz-box-shadow: 0 4px 8px #ddd;
+    -webkit-box-shadow: 0 4px 8px #ddd;
+}
+
+.draft-preview:hover {
+    border: 1px solid #bbb;
+}
+
+.draft-preview a:visited,  
+.draft-preview a { color: #000;}
+
+.draft-preview-inner {   
+    padding: 0 1em;
+    width: 100%;
+    height: 100%;
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+}
+
+.drafts {
+    padding: 1em 0 0;
+    margin: 0 1em;
+    max-width: 800px; 
+}
+
+/*#endregion */
+
+.hidden {
+    display: none !important;
+}
+
+.login { 
+    max-width: 300px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 15px; 
+}
+
+.noposts {
+    margin: 2em;
+}
+
+
+@media (max-width: 767px){ 
+    .content, .pure-button, .post pre, .banner {
+        font-size: 80.5%;
+    } 
+}
+
+
+
+/*
+    magnific popup for image    
+*/ 
+.mfp-img {
+  cursor: pointer;
+}
+
+.mfp-force-scrollbars.mfp-wrap {
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+}
+.mfp-force-scrollbars .mfp-img {
+  max-width: none;
+}
+.mfp-force-scrollbars .mfp-close {
+  position: fixed;
+}
+
+
+a.image-link {
+    border-bottom: none !important;
+}
+
+
+/*
+    pure no-border-radius
+*/ 
+.pure-form input[type=text], 
+.pure-form input[type=password], 
+.pure-form input[type=email], 
+.pure-form input[type=url], 
+.pure-form input[type=date], 
+.pure-form input[type=month], 
+.pure-form input[type=time], 
+.pure-form input[type=datetime], 
+.pure-form input[type=datetime-local], 
+.pure-form input[type=week], 
+.pure-form input[type=number], 
+.pure-form input[type=search], 
+.pure-form input[type=tel], 
+.pure-form input[type=color], 
+.pure-form select, .pure-form textarea,
+.pure-button {
+    border-radius: 0;
+} 

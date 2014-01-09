@@ -1,0 +1,46 @@
+﻿@using Blog.Resources
+
+<article data-id="@Model.ID" itemscope itemtype="http://schema.org/UserComments" itemprop="comment" class="@(Model.IsAdmin ? "self" : null)">
+    <img src="@Model.GravatarUrl(50)" width="50" height="50" alt="Comment by @Model.Author" />
+    <div>
+        @Author()
+        @Date()
+        <p itemprop="commentText">@Html.Raw(Model.Content)</p>
+        @DeleteButton()
+    </div>
+</article>
+
+@helper Date()
+{
+    var title = Model.PubDate.ToString("yyyy-MM-ddTHH:mm");
+    string display;
+    
+    if (@Model.PubDate.Year != DateTime.Now.Year)
+    {
+        display = @Model.PubDate.ToLocalTime().ToString("d MMMM yyyy, hh:mm");
+    }
+    else
+    {
+        display = @Model.PubDate.ToLocalTime().ToString("d MMMM, hh:mm");
+    }
+    
+    <time datetime="@title" itemprop="commentTime">@display</time>
+}
+@helper Author()
+{
+    if (string.IsNullOrEmpty(Model.Website))
+    {
+        <strong itemprop="creator">@Model.Author</strong>
+    }
+    else
+    {
+        <strong itemprop="creator"><a href="@Model.Website" itemprop="url" rel="nofollow">@Model.Author</a></strong>
+    }
+}
+@helper DeleteButton()
+{
+    if (User.Identity.IsAuthenticated)
+    {
+        <span class="nodecoration"><small><a href="#" class="deletecomment">@Index_Admin.Delete</a></small></span>
+    }
+}
