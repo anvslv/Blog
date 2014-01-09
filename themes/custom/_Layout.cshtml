@@ -81,7 +81,7 @@
     <script src="@Blog.FingerPrint("/scripts/lib/jquery.magnific-popup.js")"></script>
     <script src="@Blog.FingerPrint("/scripts/lib/highlight.pack.js")"></script>
     <script src="@Blog.FingerPrint("/scripts/application.js")"></script>
-    <script src="@Blog.LocalizationFingerPrint("/scripts/resources.js", Localization.Resources)"></script>
+    @*<script src="@Blog.LocalizationFingerPrint("/scripts/resources.js", Localization.Resources)"></script>*@
 
     if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)))
     {
@@ -104,6 +104,7 @@
 
     if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
     {
+        <script> @Html.Raw(Localization.GetLocalResources()) </script>
         <script src="@Blog.FingerPrint("/admin/scripts/admin.js")" async defer></script>
     }
 }
