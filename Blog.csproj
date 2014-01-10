@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\css\lib\selectize.default.css" />
+    <Content Include="scripts\lib\require.js" />
     <Content Include="css\lib\alert.css" />
     <Content Include="admin\css\lib\editor.css" />
     <Content Include="admin\scripts\lib\codemirror.inline-attach.js" />

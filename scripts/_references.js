@@ -18,3 +18,4 @@
 /// <reference path="../admin/scripts/lib/shortcuts.js" />
 /// <reference path="../admin/scripts/lib/showdown.js" />
 /// <reference path="../admin/scripts/lib/underscore.js" />
+/// <reference path="lib/require.js" />

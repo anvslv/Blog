@@ -1,7 +1,7 @@
-﻿
+﻿@using System.Web.UI.HtmlControls
 @using Blog.Resources
 @using Blog.App.Code
- 
+
 <!doctype html>
 <html lang="@Localization.CurrentLanguage">
 <head prefix="og: http://ogp.me/ns#">
@@ -34,8 +34,7 @@
     <link rel="dns-prefetch" href="http://gravatar.com/" />
     <link rel="apple-touch-icon" href="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/image.png")" />
 
-    @Css()
-    @Js()
+    @Require()
 </head>
 <body>
     @AdminMenu()
@@ -71,44 +70,10 @@
                 </span>
             </div>
         }
-    </footer> 
+    </footer>
 </body>
 </html>
 
-@helper Js()
-{
-    <script src="@Blog.FingerPrint("/scripts/lib/jquery-2.0.2.js")"></script>
-    <script src="@Blog.FingerPrint("/scripts/lib/jquery.magnific-popup.js")"></script>
-    <script src="@Blog.FingerPrint("/scripts/lib/highlight.pack.js")"></script>
-    <script src="@Blog.FingerPrint("/scripts/application.js")"></script>
-    @*<script src="@Blog.LocalizationFingerPrint("/scripts/resources.js", Localization.Resources)"></script>*@
-
-    if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)))
-    {
-        <script src="@Blog.FingerPrint("/scripts/comments.js")" async defer></script>
-    }
-
-    if (User.Identity.IsAuthenticated)
-    {
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/underscore.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/shortcuts.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Converter.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Extra.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/markdown-actions.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/inline-attach.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.inline-attach.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/selectize.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/path.js")"></script>
-    }
-
-    if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
-    {
-        <script> @Html.Raw(Localization.GetLocalResources()) </script>
-        <script src="@Blog.FingerPrint("/admin/scripts/admin.js")" async defer></script>
-    }
-}
- 
 @helper AdminMenu()
 {
     if (User.Identity.IsAuthenticated)
@@ -160,9 +125,94 @@
     </div>
 }
 
-
-@helper Css ()
+@helper Js()
 {
+    <script src="@Blog.FingerPrint("/scripts/lib/jquery-2.0.2.js")"></script>
+    <script src="@Blog.FingerPrint("/scripts/lib/jquery.magnific-popup.js")"></script>
+    <script src="@Blog.FingerPrint("/scripts/lib/highlight.pack.js")"></script>
+    <script src="@Blog.FingerPrint("/scripts/application.js")"></script>
+    @*<script src="@Blog.LocalizationFingerPrint("/scripts/resources.js", Localization.Resources)"></script>*@
+
+    if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)))
+    {
+        <script src="@Blog.FingerPrint("/scripts/comments.js")" async defer></script>
+    }
+
+    if (User.Identity.IsAuthenticated)
+    {
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/underscore.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/shortcuts.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Converter.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Extra.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/markdown-actions.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/inline-attach.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.inline-attach.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/selectize.js")"></script>
+        <script src="@Blog.FingerPrint("/admin/scripts/lib/path.js")"></script>
+    }
+
+    if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
+    {
+        <script>            @Html.Raw(Localization.GetLocalResources()) </script>
+        <script src="@Blog.FingerPrint("/admin/scripts/admin.js")" async defer></script>
+    }
+}
+@helper Require() {
+    <script>
+    @if (User.Identity.IsAuthenticated) {
+        @Html.Raw(Minification.Minify(@"
+        var require = {
+            paths: {
+                'jquery': '" + Blog.FingerPrintRequire("/scripts/lib/jquery-2.0.2.js") + @"',
+                'jquery.magnific-popup': '" + Blog.FingerPrintRequire("/scripts/lib/jquery.magnific-popup.js") + @"',
+                'highlight': '" + Blog.FingerPrintRequire("/scripts/lib/highlight.pack.js") + @"',
+                'application': '" + Blog.FingerPrintRequire("/scripts/application.js") + @"',
+                'comments': '" + Blog.FingerPrintRequire("/scripts/comments.js") + @"',
+                'underscore' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/underscore.js") + @"',
+                'shortcuts' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/shortcuts.js") + @"',
+                'codemirror' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/codemirror.js") + @"',
+                'Markdown.Converter' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/Markdown.Converter.js") + @"',
+                'Markdown.Extra' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/Markdown.Extra.js") + @"',
+                'markdown-actions' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/markdown-actions.js") + @"',
+                'inline-attach' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/inline-attach.js") + @"',
+                'codemirror.inline-attach' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/codemirror.inline-attach.js") + @"',
+                'selectize' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/selectize.js") + @"',
+                'path' : '" + Blog.FingerPrintRequire("/admin/scripts/lib/path.js") + @"',
+                'admin' : '" + Blog.FingerPrintRequire("/admin/scripts/admin.js") + @"'
+            },
+            shim: {
+                'jquery.magnific-popup': ['jquery'],
+                'application': ['jquery.magnific-popup', 'highlight'],
+                'comments': ['jquery'],
+                'codemirror.inline-attach': ['inline-attach', 'codemirror'],
+                'Markdown.Extra': ['Markdown.Converter'],
+                'markdown-actions': ['codemirror'],
+                'admin': ['underscore', 'path', 'selectize', 'application', 'shortcuts',
+                    'markdown-actions', 'codemirror.inline-attach', 'Markdown.Extra']
+            }
+        };"));
+    }
+    else
+    {
+        @Html.Raw(Minification.Minify(@"
+        var require = {
+            paths: {
+                'jquery': '" + Blog.FingerPrintRequire("/scripts/lib/jquery-2.0.2.js") + @"',
+                'jquery.magnific-popup': '" + Blog.FingerPrintRequire("/scripts/lib/jquery.magnific-popup.js") + @"',
+                'highlight': '" + Blog.FingerPrintRequire("/scripts/lib/highlight.pack.js") + @"',
+                'application': '" + Blog.FingerPrintRequire("/scripts/application.js") + @"',
+                'comments': '" + Blog.FingerPrintRequire("/scripts/comments.js") + @"'
+            },
+            shim: {
+                'jquery.magnific-popup': ['jquery'],
+                'application': ['jquery.magnific-popup', 'highlight'],
+                'comments': ['jquery']
+            }
+        };"));
+    }
+    </script>
+
     <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/pure.css")" />
     <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/magnific-popup.css")" />
     <link rel="stylesheet" href="@Blog.FingerPrint("/css/lib/highlight/vs.css")">
@@ -175,4 +225,18 @@
         <link rel="stylesheet" href="@Blog.FingerPrint("/admin/css/lib/editor.css")" />
         <link rel="stylesheet" href="@Blog.FingerPrint("/admin/css/admin.css")" />
     }
+
+    <script src='@Blog.FingerPrint("/scripts/lib/require.js")'></script>
+    <script>
+        require(['application']);
+        @if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)))
+        {
+            @Html.Raw("require(['comments']);")
+        }
+        @if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
+        {
+            @Html.Raw(Localization.GetLocalResources())
+            @Html.Raw("require(['admin']);")
+        }
+    </script>
 }

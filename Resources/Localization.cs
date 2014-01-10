@@ -6,7 +6,25 @@ using System.Web;
 using Microsoft.Ajax.Utilities;
 
 namespace Blog.Resources
-{
+{ 
+    public static class Minification
+    { 
+        public static string Minify(string content)
+        {
+            if (HttpContext.Current.IsDebuggingEnabled)
+            {
+                return content;
+            }
+            else
+            {
+                Minifier minifier = new Minifier();
+                CodeSettings settings = new CodeSettings { PreserveImportantComments = false };
+
+                return minifier.MinifyJavaScript(content, settings) + ";";
+            }
+        }
+    }
+
     public static class Localization
     {
         public static string CurrentLanguage
@@ -29,33 +47,19 @@ namespace Blog.Resources
                         HttpUtility.JavaScriptStringEncode(res.Value.ToString()));
                 }
             }
-
-            if (HttpContext.Current.IsDebuggingEnabled)
-            {
-                return content;
-            }
-            else
-            {
-                return Minify(content);
-            }
-        }
-
-        private static string Minify(string content)
-        {
-            Minifier minifier = new Minifier();
-
-            CodeSettings settings = new CodeSettings { PreserveImportantComments = false };
-            return minifier.MinifyJavaScript(content, settings);
+             
+            return content;
         }
 
         public static string[] Resources
         {
-            get { return new[] {
-                "/resources/index.resx", 
-                "/resources/index.ru.resx", 
-                "/resources/index.admin.resx",
-                "/resources/index.admin.ru.resx",
-            };
+            get { 
+                return new[] {
+                    "/resources/index.resx", 
+                    "/resources/index.ru.resx", 
+                    "/resources/index.admin.resx",
+                    "/resources/index.admin.ru.resx",
+                };
             }
         }
     }

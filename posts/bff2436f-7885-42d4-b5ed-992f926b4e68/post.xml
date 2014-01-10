@@ -4,12 +4,22 @@
   <slug>as</slug>
   <author>anvslv</author>
   <pubDate>2014-01-05 11:36:35</pubDate>
-  <lastModified>2014-01-08 00:21:07</lastModified>
+  <lastModified>2014-01-10 00:42:17</lastModified>
   <content>as</content>
   <renderedcontent>&lt;p&gt;as&lt;/p&gt;
 </renderedcontent>
   <ispublished>true</ispublished>
   <iscomments>true</iscomments>
   <categories></categories>
-  <comments></comments>
+  <comments>
+    <comment isAdmin="true" id="7a0fbc61-a29e-41d0-8b4b-f7f83b7d6b6e">
+      <author>Andrei Vasilev</author>
+      <email>anvslv@gma1il.com</email>
+      <website></website>
+      <ip>::1</ip>
+      <userAgent>Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.41 Safari/537.36</userAgent>
+      <date>2014-01-10 00:42:17</date>
+      <content>tray</content>
+    </comment>
+  </comments>
 </post>

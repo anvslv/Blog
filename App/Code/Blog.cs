@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -169,6 +170,20 @@ namespace Blog.App.Code
 
             string relative = string.Format("~" + url, Blog.CurrentPage + move);
             return VirtualPathUtility.ToAbsolute(relative);
+        }
+
+        private static String TrimEnd(this string input, string trim)
+        {
+            if (input.EndsWith(trim))
+            {
+                return input.Substring(0, input.LastIndexOf(trim, StringComparison.Ordinal));
+            }
+            return input;
+        }
+
+        public static string FingerPrintRequire(string rootRelativePath, string cdnPath = "")
+        {
+            return FingerPrint(rootRelativePath, cdnPath).TrimEnd(".js");
         }
 
         public static string FingerPrint(string rootRelativePath, string cdnPath = "")
