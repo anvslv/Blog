@@ -1,6 +1,7 @@
 ﻿@using System.Web.UI.HtmlControls
-@using Blog.Resources
+@using BlogExtensions.Resources
 @using Blog.App.Code
+@using BlogExtensions.Resources
 
 <!doctype html>
 <html lang="@Localization.CurrentLanguage">
@@ -154,7 +155,7 @@
 
     if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
     {
-        <script>            @Html.Raw(Localization.GetLocalResources()) </script>
+        <script> @Html.Raw(Localization.GetLocalResources()) </script>
         <script src="@Blog.FingerPrint("/admin/scripts/admin.js")" async defer></script>
     }
 }

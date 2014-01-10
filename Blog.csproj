@@ -174,28 +174,6 @@
     <Content Include="views\Robots\Sitemap.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\Index.Admin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Index.Admin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Index.Admin.ru.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Index.Admin.ru.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Index.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Index.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Index.ru.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Index.ru.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Localization.cs" />
-    <Compile Include="Resources\ResourcesHandler.cs" />
     <Compile Include="App\Code\Blog.cs" />
     <Compile Include="App\Code\Comment.cs" />
     <Compile Include="App\Code\Post.cs" />
@@ -227,27 +205,6 @@
       <Project>{f79ec48d-90db-4683-9f64-8cd372828745}</Project>
       <Name>BlogExtensions</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Index.Admin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Index.Admin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Index.Admin.ru.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Index.Admin.ru.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Index.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Index.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Index.ru.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Index.ru.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

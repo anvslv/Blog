@@ -7,8 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Hosting;
-using Blog.Resources;
 using BlogExtensions.Extensions;
+using BlogExtensions.Resources;
 
 namespace Blog.App.Code
 {

@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
 using Blog.App.Code;
-using Blog.Resources;
+using BlogExtensions.Resources;
 
 namespace Blog.App.Handlers
 {
