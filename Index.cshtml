@@ -90,13 +90,18 @@
         Response.Cache.VaryByParams["slug"] = true;
         Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/")));
         Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/scripts")));
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/scripts/lib")));
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/css/lib")));
+        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Blog.Theme)));
+        
         if (User.Identity.IsAuthenticated)
         {
-            Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/admin")));
+            Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/admin/css")));
+            Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/admin/css/lib")));
+            Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/admin/scripts")));
+            Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/admin/scripts/lib")));
         }
-        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/css")));
-        Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Blog.Theme)));
-
+        
         Blog.SetConditionalGetHeaders(lastModified, Context);
     }
 }
