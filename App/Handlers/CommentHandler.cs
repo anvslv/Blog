@@ -5,9 +5,9 @@ using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.WebPages;
-using Blog.App.Code;
+using MiniBlog.App.Code;
 
-namespace Blog.App.Handlers
+namespace MiniBlog.App.Handlers
 {
     public class CommentHandler : IHttpHandler
     {

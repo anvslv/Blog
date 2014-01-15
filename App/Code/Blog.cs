@@ -8,9 +8,9 @@ using System.Web;
 using System.Web.Caching;
 using System.Web.Hosting;
 using BlogExtensions.Extensions;
-using BlogExtensions.Resources;
+using BlogExtensions.Localization;
 
-namespace Blog.App.Code
+namespace MiniBlog.App.Code
 {
     public static class Blog
     {
@@ -19,12 +19,18 @@ namespace Blog.App.Code
         private static string _desc = ConfigurationManager.AppSettings.Get("blog:desc");
         private static string _email = ConfigurationManager.AppSettings.Get("blog:email");
         private static string _author = ConfigurationManager.AppSettings.Get("blog:author");
+        private static string _lang = ConfigurationManager.AppSettings.Get("blog:lang");
         private static int _postsPerPage = int.Parse(ConfigurationManager.AppSettings.Get("blog:postsPerPage"));
         private static int _commentDays = int.Parse(ConfigurationManager.AppSettings.Get("blog:daysToComment"));
 
         public static string Title
         {
             get { return _title; }
+        }
+
+        public static string Language
+        {
+            get { return _lang; }
         }
 
         public static string Email

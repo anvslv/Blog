@@ -6,7 +6,7 @@ using System.Web.Hosting;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace Blog.App.Code
+namespace MiniBlog.App.Code
 {
     public static class Storage
     {

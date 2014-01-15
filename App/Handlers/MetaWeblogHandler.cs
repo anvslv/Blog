@@ -3,10 +3,10 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web.Security;
-using Blog.App.Code;
+using MiniBlog.App.Code;
 using CookComputing.XmlRpc;
 
-namespace Blog.App.Handlers
+namespace MiniBlog.App.Handlers
 {
     public interface IMetaWeblog
     {
@@ -153,7 +153,7 @@ namespace Blog.App.Handlers
         {
             ValidateUser(username, password);
 
-            string path = Blog.App.Code.Blog.SaveFileToDisk(media.bits, Path.GetExtension(media.name));
+            string path = Blog.SaveFileToDisk(media.bits, Path.GetExtension(media.name));
 
             return new { url = path };
         }

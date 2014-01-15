@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Security;
 
-namespace Blog.App.Code
+namespace MiniBlog.App.Code
 { 
     public class Comment
     {

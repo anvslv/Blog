@@ -1,17 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.Security;
-using Blog.App.Code;
-using BlogExtensions.Resources;
-using Microsoft.Ajax.Utilities;
+﻿using System.Web; 
+using System.Web.Security; 
 
-namespace Blog.App.Handlers
+namespace MiniBlog.App.Handlers
 {
     public class LoginHandler : IHttpHandler
     {

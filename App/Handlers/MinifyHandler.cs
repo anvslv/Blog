@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Caching;
 using Microsoft.Ajax.Utilities;
 
-namespace Blog.App.Handlers
+namespace MiniBlog.App.Handlers
 {
     public class MinifyHandler : IHttpHandler
     {

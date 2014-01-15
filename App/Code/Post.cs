@@ -5,7 +5,7 @@ using System.Web.Hosting;
 using BlogExtensions.Extensions;
 using CookComputing.XmlRpc;
 
-namespace Blog.App.Code
+namespace MiniBlog.App.Code
 {
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class Post

@@ -1,7 +1,6 @@
-﻿@using System.Web.UI.HtmlControls
-@using BlogExtensions.Resources
-@using Blog.App.Code
-@using BlogExtensions.Resources
+﻿@using BlogExtensions.Extensions
+@using BlogExtensions.Localization 
+@using MiniBlog.App.Code 
 
 <!doctype html>
 <html lang="@Localization.CurrentLanguage">
@@ -35,7 +34,7 @@
     <link rel="dns-prefetch" href="http://gravatar.com/" />
     <link rel="apple-touch-icon" href="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/image.png")" />
 
-    @Require()
+    @CssAndJs()
 </head>
 <body>
     @AdminMenu()
@@ -110,54 +109,24 @@
 
 @helper ChangeLanguage()
 {
-    <div class="changeLanguage">
-        @if (Localization.CurrentLanguage == "en")
-        {
-            <span>EN</span>
-            <span><a href="@Request.RawUrl" class="language" data-lang="ru">RU</a></span>
-        }
-        else
-        {
-            <span><a href="@Request.RawUrl" class="language" data-lang="en">EN</a></span>
-            <span>RU</span>
-        }
-    </div>
-}
-
-@helper Js()
-{
-    <script src="@Blog.FingerPrint("/scripts/lib/jquery-2.0.2.js")"></script>
-    <script src="@Blog.FingerPrint("/scripts/lib/jquery.magnific-popup.js")"></script>
-    <script src="@Blog.FingerPrint("/scripts/lib/highlight.pack.js")"></script>
-    <script src="@Blog.FingerPrint("/scripts/application.js")"></script>
-    @*<script src="@Blog.LocalizationFingerPrint("/scripts/resources.js", Localization.Resources)"></script>*@
-
-    if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)))
+    if (string.IsNullOrEmpty(Blog.Language))
     {
-        <script src="@Blog.FingerPrint("/scripts/comments.js")" async defer></script>
-    }
-
-    if (User.Identity.IsAuthenticated)
-    {
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/underscore.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/shortcuts.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Converter.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/Markdown.Extra.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/markdown-actions.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/inline-attach.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/codemirror.inline-attach.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/selectize.js")"></script>
-        <script src="@Blog.FingerPrint("/admin/scripts/lib/path.js")"></script>
-    }
-
-    if (!string.IsNullOrEmpty(Blog.CurrentSlug) && User.Identity.IsAuthenticated)
-    {
-        <script> @Html.Raw(Localization.GetLocalResources()) </script>
-        <script src="@Blog.FingerPrint("/admin/scripts/admin.js")" async defer></script>
+        <div class="changeLanguage">
+            @if (Localization.CurrentLanguage == "en")
+            {
+                <span>EN</span>
+                <span><a href="@Request.RawUrl" class="language" data-lang="ru">RU</a></span>
+            }
+            else
+            {
+                <span><a href="@Request.RawUrl" class="language" data-lang="en">EN</a></span>
+                <span>RU</span>
+            }
+        </div>
     }
 }
-@helper Require() {
+ 
+@helper CssAndJs() {
     <script>
     @if (User.Identity.IsAuthenticated) {
         @Html.Raw(Minification.Minify(@"

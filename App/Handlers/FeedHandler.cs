@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ServiceModel.Syndication;
 using System.Web;
 using System.Xml;
-using Blog.App.Code;
+using MiniBlog.App.Code;
 
-namespace Blog.App.Handlers
+namespace MiniBlog.App.Handlers
 {
     public class FeedHandler : IHttpHandler
     {
@@ -13,7 +13,7 @@ namespace Blog.App.Handlers
         {
             SyndicationFeed feed = new SyndicationFeed()
             {
-                Title = new TextSyndicationContent(Blog.App.Code.Blog.Title),
+                Title = new TextSyndicationContent(Blog.Title),
                 Description = new TextSyndicationContent("Latest blog posts"),
                 BaseUri = new Uri(context.Request.Url.Scheme + "://" + context.Request.Url.Authority),
                 Items = GetItems(),
@@ -32,7 +32,7 @@ namespace Blog.App.Handlers
 
         private IEnumerable<SyndicationItem> GetItems()
         {
-            foreach (Post p in Blog.App.Code.Blog.GetPosts(10))
+            foreach (Post p in Blog.GetPosts(10))
             {
                 var item = new SyndicationItem(p.Title, p.RenderedContent, p.AbsoluteUrl, p.AbsoluteUrl.ToString(), p.LastModified);
                 item.Authors.Add(new SyndicationPerson("", p.Author, ""));

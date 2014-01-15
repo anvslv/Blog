@@ -5,10 +5,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
-using Blog.App.Code;
-using BlogExtensions.Resources;
+using MiniBlog.App.Code;
+using BlogExtensions.Localization;
 
-namespace Blog.App.Handlers
+namespace MiniBlog.App.Handlers
 {
     public class PostHandler : IHttpHandler
     {

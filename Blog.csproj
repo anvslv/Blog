@@ -168,7 +168,6 @@
     </Content>
     <Content Include="views\AdminMenu.cshtml" />
     <Content Include="views\CommentForm.cshtml" />
-    <Content Include="views\Login.cshtml" />
     <Content Include="views\Robots\Robots.cshtml" />
     <Content Include="views\Robots\RSD.cshtml" />
     <Content Include="views\Robots\Sitemap.cshtml" />
@@ -184,6 +183,7 @@
     <Compile Include="App\Handlers\MinifyHandler.cs" />
     <Compile Include="App\Handlers\LoginHandler.cs" />
     <Compile Include="App\Handlers\PostHandler.cs" />
+    <Compile Include="App\Modules\CookieLocalizationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
