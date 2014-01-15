@@ -182,6 +182,7 @@
     <Compile Include="App\Handlers\FeedHandler.cs" />
     <Compile Include="App\Handlers\MetaWeblogHandler.cs" />
     <Compile Include="App\Handlers\MinifyHandler.cs" />
+    <Compile Include="App\Handlers\LoginHandler.cs" />
     <Compile Include="App\Handlers\PostHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,6 +191,7 @@
     <Content Include="themes\custom\Comment.cshtml" />
     <Content Include="themes\custom\Post.cshtml" />
     <Content Include="themes\custom\Draft.cshtml" />
+    <Content Include="views\LoginAjax.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

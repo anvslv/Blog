@@ -42,7 +42,7 @@
 
     <div class="wrapper">
         <div class="@(User.Identity.IsAuthenticated ? "admin pullbottom" : "pullbottom")">
-            <div class="banner" id="banner">
+            <div class="banner" id="banner" role="banner">
                 <h1 class="banner-head">
                     @if (Request.RawUrl.TrimEnd('/') != "/log" && Request.RawUrl.TrimEnd('/') != "")
                     {
@@ -53,27 +53,25 @@
                 @ChangeLanguage()
                 @Alert()
             </div>
-
-            @RenderBody()
+             
+            <div role="main">
+                @RenderBody()
+            </div>
 
             @Paging()
         </div>
     </div>
 
-    <footer>
-        @if (!User.Identity.IsAuthenticated && !Request.RawUrl.StartsWith("/views/login.cshtml"))
-        {
-            <div>
-                <span class="nodecoration">
-                    <a href="@FormsAuthentication.LoginUrl?ReturnUrl=@Request.RawUrl">
-                        <img alt="Sign in" width="16" height="16" src="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/lock.png")" />
-                    </a>
-                </span>
-            </div>
-        }
+    <footer role="contentinfo" itemscope itemtype="http://schema.org/Person" itemprop="author">
+        @Login()
     </footer>
 </body>
 </html>
+
+@helper Login()
+{
+    @RenderPage("~/views/LoginAjax.cshtml") 
+}
 
 @helper AdminMenu()
 {

@@ -350,6 +350,9 @@ footer {
 
 /*#endregion */
 
+
+
+/* #region rest of it */
 .hidden {
     display: none !important;
 }
@@ -365,7 +368,15 @@ footer {
     margin: 2em;
 }
 
+a.image-link {
+    border-bottom: none !important;
+}
 
+/* #endregion */
+
+
+
+/* decrease font size for smaller width of screen */
 @media (max-width: 767px){ 
     .content, .pure-button, .post pre, .banner {
         font-size: 80.5%;
@@ -393,9 +404,19 @@ footer {
 }
 
 
-a.image-link {
-    border-bottom: none !important;
+
+/*
+    magnific popup for login    
+*/ 
+.white-popup-block {
+    background: #FFF;
+    padding: 20px 30px;
+    text-align: left;
+    max-width: 350px;
+    margin: 40px auto;
+    position: relative;
 }
+
 
 
 /*
@@ -419,3 +440,6 @@ a.image-link {
 .pure-button {
     border-radius: 0;
 } 
+
+
+

@@ -1,0 +1,35 @@
+﻿@using Blog.App.Code
+@using BlogExtensions.Resources
+ 
+@if (!User.Identity.IsAuthenticated)
+{
+    <div>
+        <span class="nodecoration"> 
+            <a class="popup-with-form" href="#login">
+                <img alt="Sign in" width="16" height="16" src="@Blog.FingerPrint("/themes/" + Blog.Theme + "/images/lock.png")" />
+            </a>
+        </span>
+    </div>
+   
+    <form action="/login" method="post" role="form" class="pure-form pure-form-stacked mfp-hide white-popup-block" id="login">
+        <div class="login">
+            <div class="pure-g-r">
+                 
+                <div class="pure-u-1 hidden" id="loginIncorrect">
+                    <p class="alert alert-danger-dark">@Index.LoginIncorrect</p>
+                </div>
+                 
+                <div class="pure-u-1-2">
+                    <input type="text" id="username" name="username" class="pure-input-1" placeholder="@Index.Username" required autofocus />
+                </div>
+                <div class="pure-u-1-2">
+                    <input type="password" id="password" name="password" class="pure-input-1" placeholder="@Index.Password" required />
+                </div>
+            </div>
+            <label for="remember" class="pure-checkbox">
+                <input type="checkbox" id="remember" name="remember">@Index.RememberMe
+            </label>
+            <button type="submit" class="pure-button pure-button-primary" id="loginSubmit">@Index.SignIn</button>
+        </div>
+    </form>
+} 
