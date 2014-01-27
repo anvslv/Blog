@@ -122,12 +122,11 @@ namespace MiniBlog.App.Code
 
                 return 1;
             }
-        }
+        } 
 
-        public static IEnumerable<Post> GetPosts(int postsPerPage)
+        public static IEnumerable<Post> GetPosts(int postsPerPage = 0)
         {
-            var posts = from p in Storage.GetAllPosts()
-                //where (p.IsPublished && p.PubDate <= DateTime.UtcNow) || HttpContext.Current.User.Identity.IsAuthenticated
+            var posts = from p in Storage.GetAllPosts() 
                 where p.IsPublished && p.PubDate <= DateTime.UtcNow
                 select p;
 
@@ -135,12 +134,14 @@ namespace MiniBlog.App.Code
 
             if (!string.IsNullOrEmpty(category))
             {
-                posts =
-                    posts.Where(
-                        p => p.Categories.Any(c => string.Equals(c, category, StringComparison.OrdinalIgnoreCase)));
+                posts = posts.Where( p => p.Categories.Any(c => string.Equals(c, category, StringComparison.OrdinalIgnoreCase)));
             }
 
-            return posts.Skip(postsPerPage*(CurrentPage - 1)).Take(postsPerPage);
+            if (postsPerPage > 0)
+            {
+                posts = posts.Skip(postsPerPage*(CurrentPage - 1)).Take(postsPerPage);
+            }
+            return posts;
         }
 
         public static IEnumerable<Post> GetDrafts()

@@ -85,7 +85,7 @@
     if (Page.ShowPaging != null)
     {
         <ul class="pure-paginator pager">
-            @if (Blog.GetPosts(Blog.PostsPerPage * 2).Count() > Blog.PostsPerPage)
+            @if (Blog.GetPosts().Count() > Blog.PostsPerPage * Blog.PostsPerPage)
             {
                 <li><a href="@Blog.GetPagingUrl(1)" rel="prev">&larr; @Index.Older</a>&nbsp;</li>
             }
