@@ -145,12 +145,19 @@ namespace BlogExtensions.Extensions
         private static void SavePng(string resultPath, string sourcePath)
         {
             var quantizer = new WuQuantizer();
-            using (var bitmap = new Bitmap(sourcePath))
+            try
             {
-                using (var quantized = quantizer.QuantizeImage(bitmap))
-                {
-                    quantized.Save(resultPath, ImageFormat.Png);
+                using (var bitmap = new Bitmap(sourcePath))
+                { 
+                    using (var quantized = quantizer.QuantizeImage(bitmap))
+                    { 
+                        quantized.Save(resultPath, ImageFormat.Png); 
+                    }
                 }
+            }
+            catch (QuantizationException)
+            {
+
             }
         }
 
