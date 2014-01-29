@@ -7,6 +7,7 @@ namespace Tests
 { 
     public class ImageExtensionsTests
     {
+        private const string directory = ".\\"; 
         private string one = "files/one{0}.png";
         private string two = "files/two{0}.jpg";
         private string three = "files/three{0}.png"; 
@@ -14,28 +15,31 @@ namespace Tests
         private const string suffixOrig = "-cmp";
         private const string suffixThumb = "-cmp-thumb";
 
-        private readonly string onePathOrig = "";
-        private readonly string twoPathOrig = "";
-        private readonly string threePathOrig = "";
-     
-        public ImageExtensionsTests()
-        {
-            string onePath = "";
-            string oneThumbPath = "";
-            string twoPath = "";
-            string twoThumbPath = "";
-            string threePath = "";
-            string threeThumbPath = "";
+        string onePathOrig = "";
+        string twoPathOrig = "";
+        string threePathOrig = "";
 
-            onePathOrig = Path.Combine("..\\..\\", string.Format(one, ""));
-            twoPathOrig = Path.Combine("..\\..\\", string.Format(two, ""));
-            threePathOrig = Path.Combine("..\\..\\", string.Format(three, ""));
-            onePath = Path.Combine("..\\..\\", string.Format(one, suffixOrig));
-            oneThumbPath = Path.Combine("..\\..\\", string.Format(one, suffixThumb));
-            twoPath = Path.Combine("..\\..\\", string.Format(two, suffixOrig));
-            twoThumbPath = Path.Combine("..\\..\\", string.Format(two, suffixThumb));
-            threePath = Path.Combine("..\\..\\", string.Format(three, suffixOrig));
-            threeThumbPath = Path.Combine("..\\..\\", string.Format(three, suffixThumb));
+        string onePath = "";
+        string oneThumbPath = "";
+        string twoPath = "";
+        string twoThumbPath = "";
+        string threePath = "";
+        string threeThumbPath = "";
+
+        public ImageExtensionsTests()
+        { 
+            onePathOrig = Path.Combine(directory, string.Format(one, ""));
+            twoPathOrig = Path.Combine(directory, string.Format(two, ""));
+            threePathOrig = Path.Combine(directory, string.Format(three, ""));
+
+            onePath = Path.Combine(directory, string.Format(one, "").AddSuffixAndReplaceExtension(suffixOrig));
+            oneThumbPath = Path.Combine(directory, string.Format(one, "").AddSuffixAndReplaceExtension(suffixThumb));
+
+            twoPath = Path.Combine(directory, string.Format(two, "").AddSuffixAndReplaceExtension(suffixOrig));
+            twoThumbPath = Path.Combine(directory, string.Format(two, "").AddSuffixAndReplaceExtension(suffixThumb));
+
+            threePath = Path.Combine(directory, string.Format(three, "").AddSuffixAndReplaceExtension(suffixOrig));
+            threeThumbPath = Path.Combine(directory, string.Format(three, "").AddSuffixAndReplaceExtension(suffixThumb));
 
             if (File.Exists(onePath))
                 File.Delete(onePath);
@@ -59,18 +63,13 @@ namespace Tests
             var input = "<img src=\"files/one.png\" alt=\"smth\" title=\"else\">" +
                         "<img src=\"files/two.jpg\" alt=\"other\" title=\"stuff\">";
 
-            var result = input.ProcessLargeImages(Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\"));
+            var result = input.ProcessLargeImages(Path.Combine(Directory.GetCurrentDirectory(), directory));
              
             var expected =
                 "<img src=\"files/one-cmp.jpg\" alt=\"smth\" title=\"else\" width='272' height='260'>" +
                 "<a href='files/two-cmp.jpg' class='without-caption image-link'>" +
                 "   <img src=\"files/two-cmp-thumb.jpg\" alt=\"other\" title=\"stuff\" width='600' height='337'>" +
-                "</a>";
-            var res =
-                "<img src=\"files/one-cmp.png\" alt=\"smth\" title=\"else\" width='272' height='260'>" +
-                "<a href='files/two-cmp.jpg' class='without-caption image-link'>" +
-                "   <img src=\"files/two-cmp-thumb.jpg\" alt=\"other\" title=\"stuff\" width='600' height='337'>" +
-                "</a>";
+                "</a>"; 
 
             Assert.Equal(expected, result);
         }
@@ -79,7 +78,7 @@ namespace Tests
         public void ImageResizerWorksForPng()
         {
             var result = ImageUtilities.GenerateVersions(onePathOrig, suffixOrig, suffixThumb);
-            Assert.Equal(new List<string> { @"..\..\files/one-cmp-thumb.jpg", @"..\..\files/one-cmp.jpg" }, result);
+            Assert.Equal(new List<string> { oneThumbPath, onePath }, result);
 
         }
 
@@ -87,7 +86,7 @@ namespace Tests
         public void ImageResizerWorksForLargePng()
         {
             var result = ImageUtilities.GenerateVersions(twoPathOrig, suffixOrig, suffixThumb);
-            Assert.Equal(new List<string> { @"..\..\files/two-cmp-thumb.jpg", @"..\..\files/two-cmp.jpg" }, result);
+            Assert.Equal(new List<string> { twoThumbPath, twoPath}, result);
 
         }
 
@@ -95,7 +94,7 @@ namespace Tests
         public void ImageResizerWorksForJpg()
         {
             var result = ImageUtilities.GenerateVersions(threePathOrig, suffixOrig, suffixThumb);
-            Assert.Equal(new List<string> { @"..\..\files/three-cmp-thumb.jpg", @"..\..\files/three-cmp.jpg" }, result);
+            Assert.Equal(new List<string> { threeThumbPath,  threePath}, result);
 
         }
     }
