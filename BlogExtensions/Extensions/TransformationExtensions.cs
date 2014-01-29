@@ -60,37 +60,34 @@ namespace BlogExtensions.Extensions
                 string wholeThing = match.Groups[0].Value;
 
                 string path = Path.Combine(dir, src.TrimStart('/', '\\').Replace("/", "\\"));
-                string pathThumb = path.AddSuffix(suffixThumb);
-                string pathOrig = path.AddSuffix(suffixOrig);
-
+             
                 if (File.Exists(path))
                 {
-                    Image i = Image.FromFile(path);
+                    ImageHelper.Size  i = ImageHelper.GetDimensions(path);
                     var iWidth = i.Width;
-                    var iHeight = i.Height;
-                    i.Dispose();
+                    var iHeight = i.Height; 
 
                     if (iWidth > maxWidth)
                     {
                         double k = (double)iWidth/maxWidth; 
                         var newHeight = (int)((iHeight)/k);
-                      
-                        ImageUtilities.SaveImage(path, pathThumb, 70, maxWidth, newHeight);
-                        ImageUtilities.SaveImage(path, pathOrig, 70, iWidth, iHeight);
+                         
+                        ImageUtilities.GenerateVersions(path, suffixOrig, suffixThumb);
                         
-                        var wholeThingWithDimensions = wholeThing.Replace(src, src.AddSuffix(suffixThumb))
+                        var wholeThingWithDimensions = wholeThing.Replace(src, src.AddSuffixAndReplaceExtension(suffixThumb))
                             .Replace(">", " width='" + maxWidth + "' height='" + newHeight + "'>");
 
-                        var link = @"<a href='" + src.AddSuffix(suffixOrig) +
-                                  "' class='without-caption image-link'>   " + wholeThingWithDimensions + "</a>";
+                        var link = @"<a href='" + src.AddSuffixAndReplaceExtension(suffixOrig) +
+                            "' class='without-caption image-link'>   " + wholeThingWithDimensions + "</a>"; 
+                        
                         content = content.Replace(wholeThing, link);
                     }
                     else
                     {
-                        var wholeThingWithDimensions = wholeThing.Replace(src, src.AddSuffix(suffixThumb))
-                            .Replace(">", " width='" + iWidth + "' height='" + iHeight + "'>");
-                         
-                        ImageUtilities.SaveImage(path, pathThumb);
+                        ImageUtilities.GenerateVersions(path, suffixOrig);
+
+                        var wholeThingWithDimensions = wholeThing.Replace(src, src.AddSuffixAndReplaceExtension(suffixOrig))
+                                .Replace(">", " width='" + iWidth + "' height='" + iHeight + "'>");
                         
                         content = content.Replace(wholeThing, wholeThingWithDimensions);
 
