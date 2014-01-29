@@ -19,7 +19,8 @@
         display: none;  
         position: absolute; 
         right: 0em; 
-        margin: 1em 2em 0 1em;
+        margin: 19px 2em 0 1em;
+        vertical-align: middle;
     }
 
         #banner aside .alert {
@@ -148,7 +149,7 @@
  
 /* #region admin bar responsiveness */
 
-@media (max-width: 767px){ 
+@media (max-width: 787px){ 
      
     .pure-menu li a {
         padding: 5px 10px;
@@ -164,14 +165,18 @@
     }
 }
 
-@media (max-width: 480px) {
-    #admin {
+@media (max-width: 585px) {
+    .pure-menu li a {
+        padding: 5px 5px;
+    }
+    
+     #admin {
         padding: 0;
     }
     
     .wrapper,
     #admin {
-        min-width: 430px;
+        min-width: 475px;
     }
     
     #admin ul {

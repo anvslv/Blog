@@ -150,14 +150,23 @@
             }
         },
         showMessage = function(success, message) {
-            var className = success ? "alert-success" : "alert-danger";
+            var bannerHead = $(".banner-head a"),
+                className = success ? "alert-success" : "alert-danger",
+                documentWidth, txtMessageWidth, bannerHeadWidth = 0;
+            
             txtMessage.addClass(className);
             txtMessage.text(message);
             txtMessage.parent().fadeIn();
 
-            var bannerHead = $(".banner-head");
+            documentWidth = $(document).width();
+            txtMessageWidth = txtMessage.width();  
 
-            var hideBannerHead = $(document).width() - txtMessage.width() - bannerHead.width() < 0;
+            bannerHead.each(function () {
+                bannerHeadWidth += parseInt($(this).width(), 10);
+            });
+
+            var hideBannerHead = documentWidth - txtMessageWidth - bannerHeadWidth < 0;
+
             if (hideBannerHead) {
                 bannerHead.fadeOut("slow");
             }

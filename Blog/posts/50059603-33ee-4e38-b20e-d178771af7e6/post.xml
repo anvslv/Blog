@@ -4,7 +4,7 @@
   <slug>new-post</slug>
   <author>demo</author>
   <pubDate>2013-12-25 14:26:08</pubDate>
-  <lastModified>2014-01-29 10:35:31</lastModified>
+  <lastModified>2014-01-29 19:26:34</lastModified>
   <content>Earlier this year, [Sayed](http://sedodream.com) and I released [Web Developer Checklist](http://webdevchecklist.com) to help web developer adhere to best practices. Checklists like these can be really helpful to make sure we don’t forget anything before releasing new or updated websites.
 
 ![Chrome extension](/posts/50059603-33ee-4e38-b20e-d178771af7e6/image-1387982901002.png "Chrome Extension") 
@@ -29,6 +29,8 @@ We think these checks would be hugely beneficial. If you have ideas for other ch
 
 ## Open source
 The Web Developer Checklist Chrome extension is open source and hosted on our [GitHub org](https://github.com/ligershark/BestPracticesChromeExtension). As always, pull requests are more than welcome.
+
+
 </content>
   <renderedcontent>&lt;p&gt;Earlier this year, &lt;a href="http://sedodream.com"&gt;Sayed&lt;/a&gt; and I released &lt;a href="http://webdevchecklist.com"&gt;Web Developer Checklist&lt;/a&gt; to help web developer adhere to best practices. Checklists like these can be really helpful to make sure we don’t forget anything before releasing new or updated websites.&lt;/p&gt;
 &lt;p&gt;&lt;img src="/posts/50059603-33ee-4e38-b20e-d178771af7e6/image-1387982901002-cmp.jpg" alt="Chrome extension" title="Chrome Extension" / width='279' height='580'&gt; &lt;/p&gt;
