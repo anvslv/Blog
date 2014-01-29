@@ -105,8 +105,8 @@ namespace MiniBlog.App.Code
 
         private static void LoadPosts()
         {
-            if (!Directory.Exists(_rootFolder))
-                Directory.CreateDirectory(_rootFolder);
+            //if (!Directory.Exists(_rootFolder))
+            //    Directory.CreateDirectory(_rootFolder);
 
             List<Post> list = new List<Post>();
 
