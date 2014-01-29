@@ -11,7 +11,7 @@ namespace MiniBlog.App.Code
     public static class Storage
     {
         private const string _rootFolderName = "/posts/";
-        private static string _rootFolder = HostingEnvironment.MapPath("~" + _rootFolderName);
+        private static string _rootFolder = HttpRuntime.AppDomainAppPath + _rootFolderName;
 
         public static List<Post> GetAllPosts()
         {

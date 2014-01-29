@@ -89,6 +89,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\css\lib\selectize.default.css" />
+    <None Include="LICENSE" />
+    <Content Include="posts\50059603-33ee-4e38-b20e-d178771af7e6\image-1387982901002-cmp-thumb.png" />
+    <Content Include="posts\50059603-33ee-4e38-b20e-d178771af7e6\image-1387982901002-cmp.jpg" />
+    <Content Include="posts\50059603-33ee-4e38-b20e-d178771af7e6\image-1387982901002.png" />
+    <Content Include="posts\50059603-33ee-4e38-b20e-d178771af7e6\post.xml" />
     <Content Include="scripts\lib\require.js" />
     <Content Include="css\lib\alert.css" />
     <Content Include="admin\css\lib\editor.css" />
@@ -202,9 +207,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="posts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BlogExtensions\BlogExtensions.csproj">
       <Project>{f79ec48d-90db-4683-9f64-8cd372828745}</Project>
