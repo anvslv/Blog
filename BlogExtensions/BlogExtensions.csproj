@@ -36,21 +36,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AjaxMin.5.7.5124.21499\lib\net40\AjaxMin.dll</HintPath>
     </Reference>
-    <Reference Include="ImageResizer">
-      <HintPath>..\..\packages\ImageResizer.3.4.2\lib\ImageResizer.dll</HintPath>
+    <Reference Include="ImageResizer, Version=3.4.2.549, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ImageResizer.3.4.2\lib\ImageResizer.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownDeep">
       <HintPath>..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\FileDateExtensions.cs" />
@@ -90,7 +85,6 @@
     <Compile Include="WebOptimizer\RemoveWhitespaceModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Fakes Include="Fakes\ImageResizer.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
