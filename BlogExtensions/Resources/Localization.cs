@@ -4,7 +4,7 @@ using System.Resources;
 using System.Threading;
 using System.Web;
 
-namespace BlogExtensions.Localization
+namespace BlogExtensions.Resources
 {
     public static class Localization
     {

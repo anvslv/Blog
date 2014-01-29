@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Blog</RootNamespace>
+    <RootNamespace>MiniBlog</RootNamespace>
     <AssemblyName>Blog</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
@@ -148,7 +148,7 @@
     <Content Include="css\lib\highlight\vs.css" />
     <Content Include="css\lib\highlight\xcode.css" />
     <Content Include="css\lib\highlight\zenburn.css" />
-    <None Include="views\Editor.cshtml" />
+    <Content Include="views\Editor.cshtml" />
     <Content Include="themes\custom\images\edit.png" />
     <Content Include="themes\custom\images\image.png" />
     <Content Include="themes\custom\images\landscape-50.jpg" />

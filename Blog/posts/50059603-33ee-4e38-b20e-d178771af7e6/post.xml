@@ -4,7 +4,7 @@
   <slug>new-post</slug>
   <author>demo</author>
   <pubDate>2013-12-25 14:26:08</pubDate>
-  <lastModified>2014-01-05 11:14:17</lastModified>
+  <lastModified>2014-01-29 10:35:31</lastModified>
   <content>Earlier this year, [Sayed](http://sedodream.com) and I released [Web Developer Checklist](http://webdevchecklist.com) to help web developer adhere to best practices. Checklists like these can be really helpful to make sure we don’t forget anything before releasing new or updated websites.
 
 ![Chrome extension](/posts/50059603-33ee-4e38-b20e-d178771af7e6/image-1387982901002.png "Chrome Extension") 
@@ -31,7 +31,7 @@ We think these checks would be hugely beneficial. If you have ideas for other ch
 The Web Developer Checklist Chrome extension is open source and hosted on our [GitHub org](https://github.com/ligershark/BestPracticesChromeExtension). As always, pull requests are more than welcome.
 </content>
   <renderedcontent>&lt;p&gt;Earlier this year, &lt;a href="http://sedodream.com"&gt;Sayed&lt;/a&gt; and I released &lt;a href="http://webdevchecklist.com"&gt;Web Developer Checklist&lt;/a&gt; to help web developer adhere to best practices. Checklists like these can be really helpful to make sure we don’t forget anything before releasing new or updated websites.&lt;/p&gt;
-&lt;p&gt;&lt;img src="/posts/50059603-33ee-4e38-b20e-d178771af7e6/image-1387982901002-cmp-thumb.png" alt="Chrome extension" title="Chrome Extension" / width='279' height='580'&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src="/posts/50059603-33ee-4e38-b20e-d178771af7e6/image-1387982901002-cmp.jpg" alt="Chrome extension" title="Chrome Extension" / width='279' height='580'&gt; &lt;/p&gt;
 &lt;p&gt;Now we’re introducing Web Developer Checklist as a &lt;a href="https://chrome.google.com/webstore/detail/web-developer-checklist/iahamcpedabephpcgkeikbclmaljebjp"&gt;Chrome extension&lt;/a&gt; that can automate a big portion of the checklist. The extension let’s you run checks for various best practices on any website - including your own running from localhost.&lt;/p&gt;
 &lt;p&gt;It performs a serious of checks by analyzing the DOM as well as integrating with 3&lt;sup&gt;rd&lt;/sup&gt;-party services like &lt;a href="https://developers.google.com/speed/pagespeed/"&gt;Google PageSpeed&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Next steps&lt;/h2&gt;
@@ -52,18 +52,8 @@ The Web Developer Checklist Chrome extension is open source and hosted on our [G
 &lt;h2&gt;Open source&lt;/h2&gt;
 &lt;p&gt;The Web Developer Checklist Chrome extension is open source and hosted on our &lt;a href="https://github.com/ligershark/BestPracticesChromeExtension"&gt;GitHub org&lt;/a&gt;. As always, pull requests are more than welcome.&lt;/p&gt;
 </renderedcontent>
-  <ispublished>false</ispublished>
+  <ispublished>true</ispublished>
   <iscomments>true</iscomments>
   <categories></categories>
-  <comments>
-    <comment isAdmin="true" id="ea5b2aa9-d92f-4cfe-bef4-1c9b7e5fa4dc">
-      <author>Andrei</author>
-      <email>anvslv@gmail.com</email>
-      <website></website>
-      <ip>::1</ip>
-      <userAgent>Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.41 Safari/537.36</userAgent>
-      <date>2013-12-27 08:22:27</date>
-      <content>This is not great.</content>
-    </comment>
-  </comments>
+  <comments></comments>
 </post>

@@ -9,7 +9,7 @@ using System.Web.Hosting;
 using BlogExtensions.Extensions;
 using Microsoft.Ajax.Utilities;
 
-namespace BlogExtensions.Localization
+namespace BlogExtensions.Resources
 {
     public class ResourcesHandler : IHttpHandler
     {
@@ -60,13 +60,13 @@ namespace BlogExtensions.Localization
         {
             response.ContentType = "text/javascript";
 
-            response.Cache.SetLastModified(FileDateExtensions.GetLastWriteDate(BlogExtensions.Localization.Localization.Resources));
+            response.Cache.SetLastModified(FileDateExtensions.GetLastWriteDate(Resources.Localization.Resources));
             response.Cache.SetValidUntilExpires(true);
             response.Cache.SetExpires(DateTime.Now.AddYears(1));
             response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
             response.Cache.SetVaryByCustom("Accept-Encoding");
         
-            response.AddCacheDependency(new CacheDependency(BlogExtensions.Localization.Localization.Resources.Select(HostingEnvironment.MapPath).ToArray()));
+            response.AddCacheDependency(new CacheDependency(Resources.Localization.Resources.Select(HostingEnvironment.MapPath).ToArray()));
         }
     
         public bool IsReusable { get; private set; }

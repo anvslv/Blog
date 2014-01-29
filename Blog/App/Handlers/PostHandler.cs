@@ -5,8 +5,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
+using BlogExtensions.Resources;
 using MiniBlog.App.Code;
-using BlogExtensions.Localization;
 
 namespace MiniBlog.App.Handlers
 {

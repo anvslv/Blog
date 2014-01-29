@@ -56,28 +56,28 @@
     <Compile Include="Extensions\TransformationExtensions.cs" />
     <Compile Include="Extensions\Minification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Localization\Index.Admin.Designer.cs">
+    <Compile Include="Resources\Index.Admin.Designer.cs">
       <DependentUpon>Index.Admin.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Localization\Index.Admin.ru.Designer.cs">
+    <Compile Include="Resources\Index.Admin.ru.Designer.cs">
       <DependentUpon>Index.Admin.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Localization\Index.Designer.cs">
+    <Compile Include="Resources\Index.Designer.cs">
       <DependentUpon>Index.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Localization\Index.ru.Designer.cs">
+    <Compile Include="Resources\Index.ru.Designer.cs">
       <DependentUpon>Index.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Localization\Localization.cs" />
-    <Compile Include="Localization\ResourcesHandler.cs" />
+    <Compile Include="Resources\Localization.cs" />
+    <Compile Include="Resources\ResourcesHandler.cs" />
     <Compile Include="WebOptimizer\BaseFilterStream.cs" />
     <Compile Include="WebOptimizer\JavaScriptMinifier.cs" />
     <Compile Include="WebOptimizer\Processor.cs" />
@@ -88,21 +88,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\Index.Admin.resx">
+    <EmbeddedResource Include="Resources\Index.Admin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Admin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Localization\Index.Admin.ru.resx">
+    <EmbeddedResource Include="Resources\Index.Admin.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Admin.ru.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Localization\Index.resx">
+    <EmbeddedResource Include="Resources\Index.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Localization\Index.ru.resx">
+    <EmbeddedResource Include="Resources\Index.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.ru.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>

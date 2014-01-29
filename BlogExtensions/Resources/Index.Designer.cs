@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BlogExtensions.Localization {
+namespace BlogExtensions.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BlogExtensions.Localization {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlogExtensions.Localization.Index", typeof(Index).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlogExtensions.Resources.Index", typeof(Index).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

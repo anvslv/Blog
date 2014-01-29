@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Caching;
 using System.Web.Hosting;
 using BlogExtensions.Extensions;
-using BlogExtensions.Localization;
+using BlogExtensions.Resources;
 
 namespace MiniBlog.App.Code
 {
