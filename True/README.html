@@ -1,0 +1,27 @@
+﻿<p>Blog engine. Combination of <br/>
+<a href="https://github.com/timsayshey/Ghost-Markdown-Editor">Ghost Markdown Editor</a> and<br/>
+<a href="https://github.com/madskristensen/miniblog">MiniBlog</a> projects.</p>
+
+<p><img src="http://anvslv.me/images/blog-thumb.png" alt="Blog"/></p>
+
+<p>Language is set in web.config. </p>
+
+<pre><code>&lt;appSettings&gt; 
+    &lt;add key="blog:lang" value="ru" /&gt; 
+&lt;/appSettings&gt;
+</code></pre>
+
+<p>If this settings is not in web.config, language can be changed with gui and is persisted with help of cookie.<br/>
+Server side uses <a href="https://github.com/toptensoftware/markdowndeep">MarkdownDeep</a>, <a href="http://imageresizing.net/">ImageResizer</a>. <br/>
+The core of client side is <a href="https://github.com/TryGhost/Ghost">Ghost</a> editor. ALso, <a href="https://github.com/isagalaev/highlight.js">highlight.js</a>, <br/>
+<a href="http://dimsemenov.com/plugins/magnific-popup/">magnific popup</a>, <a href="http://purecss.io">pure.css</a>, <a href="https://github.com/Rovak/InlineAttachment">codemirror.inline-attach</a>, <a href="https://github.com/jmcmanus/pagedown-extra">pagedown-extra</a>, <br/>
+<a href="https://github.com/brianreavis/selectize.js">selectize</a> <a href="http://underscorejs.org/">underscore</a>, <a href="https://github.com/mtrpcic/pathjs">path</a> are used.</p>
+
+<p>Press <kbd>F2</kbd> to begin editing current post.<br/>
+Keyboard shortcuts in editing mode:</p>
+
+<ul>
+<li><kbd>F1</kbd> � editing help</li>
+<li><kbd>Ctrl+S</kbd> � save</li>
+<li><kbd>Ctrl+Enter</kbd> � save and exit editing mode</li>
+</ul>
