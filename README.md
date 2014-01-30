@@ -23,7 +23,11 @@ Keyboard shortcuts in editing mode:
 * <kbd>Ctrl+S</kbd> � save
 * <kbd>Ctrl+Enter</kbd> � save and exit editing mode
 
+<<<<<<< HEAD
 ** [Demo][16] Login/password: demo/demo **
+=======
+**[Demo][16], login/password: demo/demo**
+>>>>>>> Updated readme
  
 [1]: https://github.com/timsayshey/Ghost-Markdown-Editor 
 [2]: https://github.com/madskristensen/miniblog 
