@@ -10,7 +10,7 @@ Language is set in web.config.
 		<add key="blog:lang" value="ru" /> 
 	</appSettings>
 
-If this settings is not in web.config, language can be changed with gui and is persisted with help of cookie.
+If this settings is not in web.config, language can be changed with gui and is persisted with cookie.
 Server side uses [MarkdownDeep][5], [ImageResizer][6]. 
 The core of client side is [Ghost][7] editor. ALso, [highlight.js][8], 
 [magnific popup][9], [pure.css][10], [codemirror.inline-attach][11], [pagedown-extra][12], 
@@ -22,6 +22,8 @@ Keyboard shortcuts in editing mode:
 * <kbd>F1</kbd> — editing help
 * <kbd>Ctrl+S</kbd> — save
 * <kbd>Ctrl+Enter</kbd> — save and exit editing mode
+
+##[Demo][16] Login/password: demo/demo
  
 [1]: https://github.com/timsayshey/Ghost-Markdown-Editor 
 [2]: https://github.com/madskristensen/miniblog 
@@ -38,3 +40,4 @@ Keyboard shortcuts in editing mode:
 [13]: https://github.com/brianreavis/selectize.js 
 [14]: http://underscorejs.org/
 [15]: https://github.com/mtrpcic/pathjs
+[16]: http://miniblogdemo.apphb.com/
