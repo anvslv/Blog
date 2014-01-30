@@ -12,7 +12,7 @@ Language is set in web.config.
 
 If this settings is not in web.config, language can be changed with gui and is persisted with cookie.
 Server side uses [MarkdownDeep][5], [ImageResizer][6]. 
-The core of client side is [Ghost][7] editor. ALso, [highlight.js][8], 
+The core of client side is [Ghost][7] editor. Also, [highlight.js][8], 
 [magnific popup][9], [pure.css][10], [codemirror.inline-attach][11], [pagedown-extra][12], 
 [selectize][13] [underscore][14], [path][15] are used.
 
