@@ -19,11 +19,11 @@ The core of client side is [Ghost][7] editor. ALso, [highlight.js][8],
 Press <kbd>F2</kbd> to begin editing current post.
 Keyboard shortcuts in editing mode:
   
-* <kbd>F1</kbd> — editing help
-* <kbd>Ctrl+S</kbd> — save
-* <kbd>Ctrl+Enter</kbd> — save and exit editing mode
+* <kbd>F1</kbd> ï¿½ editing help
+* <kbd>Ctrl+S</kbd> ï¿½ save
+* <kbd>Ctrl+Enter</kbd> ï¿½ save and exit editing mode
 
-##[Demo][16] Login/password: demo/demo
+** [Demo][16] Login/password: demo/demo **
  
 [1]: https://github.com/timsayshey/Ghost-Markdown-Editor 
 [2]: https://github.com/madskristensen/miniblog 
