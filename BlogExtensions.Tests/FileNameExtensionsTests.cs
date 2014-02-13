@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Blog.Extensions.Tests
 {
-    public class FineNameExtensionsTests
+    public class FileNameExtensionsTests
     {
         [Fact]
         public void SuffixIsAddedToPath()

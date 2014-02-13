@@ -51,7 +51,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="FineNameExtensionsTests.cs" />
+    <Compile Include="FileNameExtensionsTests.cs" />
     <Compile Include="StringHtmlExtensionTests.cs" />
     <Compile Include="Integration\ImageExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
