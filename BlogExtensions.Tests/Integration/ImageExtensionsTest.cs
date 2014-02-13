@@ -3,7 +3,7 @@ using System.IO;
 using BlogExtensions.Extensions;
 using Xunit;
 
-namespace Tests
+namespace Blog.Extensions.Tests.Integration
 { 
     public class ImageExtensionsTests
     {
