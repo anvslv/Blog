@@ -2,7 +2,7 @@ Blog engine. Combination of
 [Ghost Markdown Editor](https://github.com/timsayshey/Ghost-Markdown-Editor) and
 [MiniBlog](https://github.com/madskristensen/miniblog) projects.
 
-![Blog](http://anvslv.me/images/blog-thumb-en.jpg "Blog")
+![Blog](http://site-8.apphb.com/images/blog-thumb-en.jpg "Blog")
  
 Language is set in web.config. 
 
@@ -19,9 +19,9 @@ The core of client side is [Ghost][7] editor. Also, [highlight.js][8],
 Press <kbd>F2</kbd> to begin editing current post.
 Keyboard shortcuts in editing mode:
   
-* <kbd>F1</kbd> — editing help
-* <kbd>Ctrl+S</kbd> — save
-* <kbd>Ctrl+Enter</kbd> — save and exit editing mode
+* <kbd>F1</kbd> â€” editing help
+* <kbd>Ctrl+S</kbd> â€” save
+* <kbd>Ctrl+Enter</kbd> â€” save and exit editing mode
 
 **[Demo][16], login/password: demo/demo**
 
