@@ -2,7 +2,7 @@ Blog engine. Combination of
 [Ghost Markdown Editor](https://github.com/timsayshey/Ghost-Markdown-Editor) and
 [MiniBlog](https://github.com/madskristensen/miniblog) projects.
 
-![Blog](http://site-8.apphb.com/images/blog-thumb-en.jpg "Blog")
+![Blog](https://anvs.lv/images/blog-thumb-en.png "Blog")
  
 Language is set in web.config. 
 
